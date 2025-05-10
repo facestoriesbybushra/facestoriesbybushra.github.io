@@ -3,357 +3,1143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Face Stories by Bushra - Makeup Menu</title>
+    <title>Face Stories by Bushra | Premium Makeup Artist</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #000;
-            color: #fff;
+        /* Color Scheme */
+        :root {
+            --gold: #FFD700;
+            --black: #000000;
+            --dark-bg: #1a1a1a;
+            --text-white: #ffffff;
+        }
+
+        /* Base Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        
-        .container {
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-white);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: var(--black);
+        }
+
+        .services h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
-        
-        /* Header Styles */
-        .header {
-            text-align: center;
-            padding: 40px 0;
-            position: relative;
-        }
-        
-        .logo {
-            max-width: 200px;
-            margin-bottom: 20px;
-        }
-        
-        .brand-title {
-            font-size: 2.5rem;
-            margin: 10px 0;
-            background: linear-gradient(to right, #d4af37, #f9f295);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: #d4af37;
-            font-weight: 600;
-            border-bottom: 10px #d4af37;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 15px;
-        }
-        
-        .instagram-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #d4af37;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .instagram-link:hover {
-            color: #f9f295;
-            text-decoration: underline;
-        }
-        
-        /* Package Cards */
-        .package-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .package-card {
-            background: #111;
+
+        .service-card {
+            background: var(--dark-bg);
+            padding: 2rem;
             border-radius: 10px;
-            padding: 30px;
-            width: 300px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            border: 1px solid #333;
+            border: 1px solid var(--gold);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--black);
+            padding: 2rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--gold);
+        }
+
+        .social-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-white);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+
+                /* Hero Carousel */
+                .hero-carousel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            animation: slide 30s infinite;
+        }
+
+        .carousel-item {
+            width: 20%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Styled Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border: 2px solid var(--gold);
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .cta-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-btn:active {
+            transform: translateY(0);
+        }
+
+       /*New hover effect design*/
+       .service-card {
             position: relative;
             overflow: hidden;
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--gold);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 350px;
+            cursor: pointer;
         }
-        
-        .package-card::before {
+
+        .service-image {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: bottom center;
+            z-index: 1;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-image {
+            bottom: 0;
+            transform: scale(1.1);
+        }
+
+        .service-card:hover .card-content {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, #d4af37, #f9f295);
+            height: 100%;
+            background: linear-gradient(transparent 60%, rgba(0,0,0,0.8));
+            z-index: 2;
+            pointer-events: none;
         }
-        
-        .package-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #d4af37;
-            line-height: 1.3;
-        }
-        
-        .package-price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 15px 0;
-            color: #fff;
-        }
-        
-        .airbrush {
-            background: linear-gradient(135deg, #d4af37 0%, #f9f295 100%);
-            color: #000;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-left: 10px;
-            font-weight: 600;
-        }
-        
-        .brand-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 15px 0;
-            font-size: 0.95rem;
-        }
-        
-        .brand-list li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-            line-height: 1.4;
-        }
-        
-        .brand-list li::before {
-            content: '•';
-            color: #d4af37;
+
+        .hero-carousel {
             position: absolute;
-            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
         }
-        
-        /* Event Packages Specific Fix */
-        .event-package .brand-list li {
-            white-space: normal;
-            word-wrap: break-word;
-        }
-        
-        /* Inclusions Section */
-        .inclusions {
-            background: #111;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 40px;
-            border: 1px solid #333;
-        }
-        
-        .inclusions-title {
-            font-size: 1.8rem;
-            color: #d4af37;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .inclusion-item {
+
+        .carousel-track {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
+            width: 500%;
+            height: 100%;
+            animation: slide 30s infinite;
         }
-        
-        .inclusion-item::before {
-            content: '✓';
-            color: #d4af37;
-            margin-right: 10px;
-            font-weight: bold;
+
+        .carousel-item {
+            flex: 1 0 20%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
         }
-        
-        .policy-note {
-            background: rgba(212, 175, 55, 0.1);
-            border-left: 4px solid #d4af37;
-            padding: 15px;
-            margin-top: 30px;
-            font-size: 0.9rem;
-            line-height: 1.5;
+
+
+
+        /* Enhanced Buttons */
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--gold);
+            background: rgba(26, 26, 26, 0.8);
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
         }
-        
-        /* Footer */
-        .footer {
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 215, 0, 0.2), 
+                transparent);
+            transition: 0.5s;
+        }
+
+        .cta-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-carousel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .carousel-item {
+            flex: 1 0 20%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Carousel Controls */
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 2;
+        }
+
+
+
+        .control-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Pause Button */
+        /* .pause-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
+        } */
+
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            z-index: 1;
             text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9rem;
+            padding-top: 120px;
         }
-        
-        /* Responsive */
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1.5rem;
+            z-index: 3;
+        }
+
+        .control-btn {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: grid;
+            place-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+
+        /* Paused State Styles */
+        .paused .hero-content {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .paused .carousel-item::before {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        /* ===== Paused State Styles ===== */
+.hero.paused .hero-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.hero.paused .carousel-item::before {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Pause Button ===== */
+.pause-btn {
+    z-index: 4; /* Increased z-index */
+    background: rgba(26, 26, 26, 0.95);
+    border: 2px solid var(--gold);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pause-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .package-section {
-                flex-direction: column;
-                align-items: center;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .package-card {
-                width: 85%;
-                padding: 25px;
+            .nav-links {
+                gap: 1.5rem;
             }
             
-            .package-title {
-                font-size: 1.4rem;
-            }
-            
-            .package-price {
-                font-size: 2rem;
+            .service-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Testimonial css -->
+    <style>
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: var(--black);
+            position: relative;
+        }
+    
+        .testimonials h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+    
+        .testimonials-carousel {
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            padding: 0 2rem;
+        }
+    
+        .testimonial-track {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1rem 0;
+        }
+    
+        .testimonial-card {
+            flex: 0 0 380px;
+            height: 450px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid var(--gold);
+        }
+    
+        .card-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(1px);
+        }
+
+        .logo-image {
+
+            height:200px;
+            width:200px
+        }
+    
+        .testimonial-content {
+            position: relative;
+            z-index: 2;
+            color: var(--text-white);
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+    
+        .testimonial-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            line-clamp: "";
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    
+        /* Modal Styles */
+        .testimonial-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+        }
+    
+        .modal-content {
+            position: relative;
+            background: var(--dark-bg);
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            display: flex;
+            gap: 2rem;
+        }
+    
+        .modal-image {
+            width: 300px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+        }
+    
+        .modal-text {
+            flex: 1;
+            color: var(--text-white);
+        }
+    
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--gold);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    
+        @media (max-width: 768px) {
+            .testimonial-card {
+                flex: 0 0 300px;
+                height: 400px;
+            }
+    
+            .modal-content {
+                flex-direction: column;
+                width: 90%;
+            }
+    
+            .modal-image {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <img src="bushra.png" alt="FaceStories by Bushra" class="logo">
-            <h1 class="brand-title">FACE STORIES BY BUSHRA</h1>
-            <p class="subtitle">Luxury Bridal & Event Makeup Artistry</p>
-            <a href="https://www.instagram.com/facestories_by_bushra/" class="instagram-link" target="_blank">
-                <i class="fab fa-instagram"></i> @facestories_by_bushra
-            </a>
-            <p>
-                <i class="fab fa-whatsapp" style="color: #d4af37;"></i> 
-                <a href="https://wa.me/917004789317" style="color: #d4af37; text-decoration: none;">
-                    +91 70047 89317
-                </a>
-            </p>
-        </header>
-        
-        <h2 style="text-align: center; color: #d4af37; margin-bottom: 30px;">BRIDAL MAKEUP PACKAGES</h2>
-        
-        <div class="package-section">
-            <div class="package-card">
-                <h3 class="package-title">Classic Bridal</h3>
-                <div class="package-price">₹15,000</div>
-                <ul class="brand-list">
-                    <li>MAC</li>
-                    <li>Makeup Studio</li>
-                    <li>Too Faced</li>
-                    <li>NARS</li>
-                    <li>Character Cosmetics</li>
-                </ul>
-            </div>
-            
-            <div class="package-card">
-                <h3 class="package-title">Premium Bridal</h3>
-                <div class="package-price">₹18,000</div>
-                <ul class="brand-list">
-                    <li>Dior</li>
-                    <li>Chanel</li>
-                    <li>Armani</li>
-                    <li>Fenty</li>
-                    <li>Smashbox</li>
-                    <li>Estée Lauder</li>
-                    <li>Charlotte Tilbury</li>
-                </ul>
-            </div>
-            
-            <div class="package-card">
-                <h3 class="package-title">Airbrush Bridal</h3>
-                <div class="package-price">₹25,000 <!--<span class="airbrush">AIRBRUSH</span>--></div> 
-                <ul class="brand-list">
-                    <li>All High-End International Brands</li>
-                    <li>Airbrush Technique</li>
-                    <li>Professional Lighting Setup</li>
-                    <li>Extended Services</li>
-                </ul>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="brochure.html">Brochure</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-carousel">
+            <div class="carousel-track">
+                <div class="carousel-item" style="background-image: url('images/hero1.jpg')"></div>
+                <div class="carousel-item" style="background-image: url('images/hero2.jpg')"></div>
+                <div class="carousel-item" style="background-image: url('images/hero3.jpg')"></div>
+                <div class="carousel-item" style="background-image: url('images/hero4.jpg')"></div>
+                <div class="carousel-item" style="background-image: url('images/hero5.jpg')"></div>
             </div>
         </div>
-        
-        <h2 style="text-align: center; color: #d4af37; margin: 50px 0 30px;">EVENT MAKEUP PACKAGES</h2>
-        
-        <div class="package-section">
-            <div class="package-card event-package">
-                <h3 class="package-title">Engagement/Sangeet</h3>
-                <div class="package-price">₹12,000</div>
-                <ul class="brand-list">
-                    <li>MAC</li>
-                    <li>Bodyography</li>
-                    <li>Huda</li>
-                    <li>Makeup Forever</li>
-                </ul>
-            </div>
-            
-            <div class="package-card event-package">
-                <h3 class="package-title">Premium Event</h3>
-                <div class="package-price">₹15,000</div>
-                <ul class="brand-list">
-                    <li>Armani</li>
-                    <li>Dior</li>
-                    <li>Fenty</li>
-                    <li>Smashbox</li>
-                    <li>Haus Labs</li>
-                    <li>Chanel</li>
-                    <li>Charlotte Tilbury</li>
-                    <li>Estée Lauder</li>
-                </ul>
-            </div>
-            
-            <div class="package-card">
-                <h3 class="package-title">Haldi/Mehndi</h3>
-                <div class="package-price">₹8,000</div>
-                <ul class="brand-list">
-                    <li>Hair Extensions Included</li>
-                    <li>Hair Accessories</li>
-                    <li>Customized Traditional Look</li>
-                    <li>Long-Lasting Formula</li>
-                </ul>
-            </div>
+         <!-- Carousel Controls -->
+         <div class="carousel-controls">
+            <button class="control-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="control-btn pause-btn"><i class="fas fa-pause"></i></button>
+            <button class="control-btn next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
         
-        <div class="inclusions">
-            <h3 class="inclusions-title">ALL PACKAGES INCLUDE</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div class="inclusion-item">Customized Makeup Design</div>
-                    <div class="inclusion-item">Professional Hair Styling</div>
-                    <div class="inclusion-item">Saree/Dress Draping Assistance</div>
-                    <div class="inclusion-item">Premium False Lashes</div>
-                    <div class="inclusion-item">Colored Lenses (Optional)</div>
-                    <div class="inclusion-item">High-Quality Hair Extensions</div>
-                    <div class="inclusion-item">Skin Prep & Priming</div>
-                    <div class="inclusion-item">Long-Lasting Setting</div>
-            </div>
-            
-            <div class="policy-note">
-                <p><strong>Booking Policy:</strong> 30% advance payment required (non-refundable). Adjustable for future bridal or engagement bookings only. Date changes subject to availability.</p>
-                <p><strong>Advance Payment:</strong> 30% non-refundable deposit required to secure your date.</p>
-                <p><strong>Rescheduling:</strong> Date changes subject to availability with at least 15 days notice.</p>
-                <p><strong>Cancellation:</strong> Deposit can be applied to future bookings within 6 months.</p>
-                <p><strong>Travel Fees:</strong> May apply for locations outside city limits.</p>
+        
+        
+        
+        <div class="hero-content" data-aos="zoom-in">
+            <img src="images/logo.png" class="logo-image" alt="Logo">
+            <h1>Face Stories by Bushra</h1>
+            <p class="subtitle">Creating Timeless Beauty with Premium Makeup Artistry</p>
+            <div class="cta-buttons">
+                <a href="portfolio.html" class="cta-btn">View Portfolio</a>
+                <a href="contact.html" class="cta-btn">Book Consultation</a>
             </div>
         </div>
-        
-        <div class="footer">
-            <div class="contact-section">
-                <h3>CONTACT FOR BOOKINGS</h3>
-                <p>
-                    <i class="fab fa-whatsapp" style="color: #25D366;"></i> 
-                    <a href="https://wa.me/917004789317" style="color: #d4af37; text-decoration: none;">
-                        +91 70047 89317
-                    </a>
-                </p>
-                <p>
-                    <i class="fab fa-instagram" style="color: #E1306C;"></i> 
-                    <a href="https://www.instagram.com/facestories_by_bushra/" style="color: #d4af37; text-decoration: none;">
-                        @facestories_by_bushra
-                    </a>
-                </p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2 data-aos="fade-up">Our Services</h2>
+        <div class="service-grid">
+            <!-- Bridal Makeup Card -->
+            <div class="service-card" data-aos="fade-up">
+                <img src="images/makeup1.jpg" class="service-image" alt="Bridal Makeup">
+                <div class="card-content">
+                    <i class="fas fa-heart"></i>
+                    <h3>Bridal Makeup</h3>
+                    <p>Complete bridal packages with trials, traditional & contemporary looks</p>
+                </div>
             </div>
-            <p>© <script>document.write(new Date().getFullYear())</script> Face Stories by Bushra. All rights reserved.</p>
+
+            <!-- Special Occasions Card -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="images/party-hover.jpg" class="service-image" alt="Special Occasion">
+                <div class="card-content">
+                    <i class="fas fa-star"></i>
+                    <h3>Special Occasions</h3>
+                    <p>Perfect looks for engagements, parties, and corporate events</p>
+                </div>
+            </div>
+
+            <!-- Makeup Workshops Card -->
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="images/workshop-hover.jpg" class="service-image" alt="Makeup Workshop">
+                <div class="card-content">
+                    <i class="fas fa-palette"></i>
+                    <h3>Makeup Workshops</h3>
+                    <p>Personalized beauty lessons for perfect everyday looks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+
+    <section class="testimonials">
+        <h2 data-aos="fade-up">Client Testimonials</h2>
+        <div class="testimonials-carousel">
+            <div class="testimonial-track">
+                <!-- Testimonial Cards (Duplicate and update content for 10) -->
+                <div class="testimonial-card" data-aos="fade-up" 
+                     style="background-image: url('images/client1.png')"
+                     data-fulltext="I had an amazing experience with Bushra and her team,  and I can’t thank them enough! As a client, I was looking for someone who could create a natural yet elegant look, and they absolutely nailed it.
+                     The makeup was flawless, lasted all day. I received countless compliments and felt so confident throughout the event.
+                     I’m beyond happy with the results. Thank you so much for making me feel gorgeous!
+                     ">
+                    <div class="card-blur"></div>
+                    <div class="testimonial-content">
+                        <p>"I had an amazing experience with Bushra and her team! The makeup was flawless and lasted all day..."</p>
+                        <h4>- Ankita Pandey</h4>
+                    </div>
+                </div>
+    
+                <!-- Add 9 more testimonials following the same pattern -->
+                <!-- Example Testimonial 2 -->
+                <div class="testimonial-card" data-aos="fade-up" 
+                     style="background-image: url('images/client2.png')"
+                     data-fulltext="Every single person complimented the make up, better than what I had envisioned for myself. Made me feel so confident and happy on my D-day. Apart from her artistic skills, her warm behaviour is also praise worthy, entire process becomes so smooth and stress free.">
+                    <div class="card-blur"></div>
+                    <div class="testimonial-content">
+                        <p>"Every single person complimented the make up,..."</p>
+                        <h4>- Nisha Mishra</h4>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" 
+                     style="background-image: url('images/client3.png')"
+                     data-fulltext="As someone who rarely wears makeup, I was quite skeptical about choosing a makeup artist. I didn’t want to risk looking like someone else on my day. But I’m so glad I chose you, Bushra, and your wonderful team! You were incredibly sweet and understanding throughout the entire day. Without needing too much explanation, you read my mind perfectly and delivered exactly what I was hoping for. I felt like myself—comfortable, confident, and absolutely beautiful! Thanks a ton ❣️">
+                    <div class="card-blur"></div>
+                    <div class="testimonial-content">
+                        <p>"BAs someone who rarely wears makeup, ..."</p>
+                        <h4>- Juhi Agarwal</h4>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" 
+                style="background-image: url('images/client1.png')"
+                data-fulltext="I had an amazing experience with Bushra and her team,  and I can’t thank them enough! As a client, I was looking for someone who could create a natural yet elegant look, and they absolutely nailed it.
+                The makeup was flawless, lasted all day. I received countless compliments and felt so confident throughout the event.
+                I’m beyond happy with the results. Thank you so much for making me feel gorgeous!
+                ">
+               <div class="card-blur"></div>
+               <div class="testimonial-content">
+                   <p>"I had an amazing experience with Bushra and her team! The makeup was flawless and lasted all day..."</p>
+                   <h4>- Ankita Pandey</h4>
+               </div>
+           </div>
+
+           <!-- Add 9 more testimonials following the same pattern -->
+           <!-- Example Testimonial 2 -->
+           <div class="testimonial-card" data-aos="fade-up" 
+                style="background-image: url('images/client2.png')"
+                data-fulltext="Every single person complimented the make up, better than what I had envisioned for myself. Made me feel so confident and happy on my D-day. Apart from her artistic skills, her warm behaviour is also praise worthy, entire process becomes so smooth and stress free.">
+               <div class="card-blur"></div>
+               <div class="testimonial-content">
+                   <p>"Every single person complimented the make up,..."</p>
+                   <h4>- Nisha Mishra</h4>
+               </div>
+           </div>
+
+           <div class="testimonial-card" data-aos="fade-up" 
+                style="background-image: url('images/client3.png')"
+                data-fulltext="As someone who rarely wears makeup, I was quite skeptical about choosing a makeup artist. I didn’t want to risk looking like someone else on my day. But I’m so glad I chose you, Bushra, and your wonderful team! You were incredibly sweet and understanding throughout the entire day. Without needing too much explanation, you read my mind perfectly and delivered exactly what I was hoping for. I felt like myself—comfortable, confident, and absolutely beautiful! Thanks a ton ❣️">
+               <div class="card-blur"></div>
+               <div class="testimonial-content">
+                   <p>"BAs someone who rarely wears makeup, ..."</p>
+                   <h4>- Juhi Agarwal</h4>
+               </div>
+           </div>
+           <div class="testimonial-card" data-aos="fade-up" 
+           style="background-image: url('images/client1.png')"
+           data-fulltext="I had an amazing experience with Bushra and her team,  and I can’t thank them enough! As a client, I was looking for someone who could create a natural yet elegant look, and they absolutely nailed it.
+           The makeup was flawless, lasted all day. I received countless compliments and felt so confident throughout the event.
+           I’m beyond happy with the results. Thank you so much for making me feel gorgeous!
+           ">
+          <div class="card-blur"></div>
+          <div class="testimonial-content">
+              <p>"I had an amazing experience with Bushra and her team! The makeup was flawless and lasted all day..."</p>
+              <h4>- Ankita Pandey</h4>
+          </div>
+      </div>
+
+      <!-- Add 9 more testimonials following the same pattern -->
+      <!-- Example Testimonial 2 -->
+      <div class="testimonial-card" data-aos="fade-up" 
+           style="background-image: url('images/client2.png')"
+           data-fulltext="Every single person complimented the make up, better than what I had envisioned for myself. Made me feel so confident and happy on my D-day. Apart from her artistic skills, her warm behaviour is also praise worthy, entire process becomes so smooth and stress free.">
+          <div class="card-blur"></div>
+          <div class="testimonial-content">
+              <p>"Every single person complimented the make up,..."</p>
+              <h4>- Nisha Mishra</h4>
+          </div>
+      </div>
+
+      <div class="testimonial-card" data-aos="fade-up" 
+           style="background-image: url('images/client3.png')"
+           data-fulltext="As someone who rarely wears makeup, I was quite skeptical about choosing a makeup artist. I didn’t want to risk looking like someone else on my day. But I’m so glad I chose you, Bushra, and your wonderful team! You were incredibly sweet and understanding throughout the entire day. Without needing too much explanation, you read my mind perfectly and delivered exactly what I was hoping for. I felt like myself—comfortable, confident, and absolutely beautiful! Thanks a ton ❣️">
+          <div class="card-blur"></div>
+          <div class="testimonial-content">
+              <p>"BAs someone who rarely wears makeup, ..."</p>
+              <h4>- Juhi Agarwal</h4>
+          </div>
+      </div>
+      
+                
+                <!-- Continue adding testimonials 3-10 -->
+            </div>
+            
+            <!-- Carousel Controls -->
+            <div class="testimonial-controls">
+                <button class="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <a href="https://www.google.com/search?sca_esv=969efb9743fb7422&biw=1470&bih=832&sxsrf=AHTn8zqQboTLABunnVmkLSBBCEOYuX1xYQ:1746912543812&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzYEvD1eD4hyRwmjjQ0gNMr-_SCLg0Fw--tV-fY-bjLazwaQdHLe6Hr0CpXwkv0rnGirc8tpRMafgtyqksBEqhMX0jOn8P4-OmOCx_GaBJPcZHzWpouQqAv_eosWtqW9kakn8kWa1jaeRBR9n-c9y2uNOWih4zIzWMe9N2xthLFM86SbzVQ%3D%3D&q=Bushra+Fatma+-+Best+Makeup+Artist+%7C+Best+Bridal+Makeup+Artist+Jamshedpur+Reviews&sa=X&ved=2ahUKEwj5vYKt7JmNAxW51TgGHSovKs8Q0bkNegQIJBAE" target="_blank" class="review-button">
+            <i class="fas fa-comments"></i>
+            View All Reviews on Google
+        </a>
+    </section>
+    
+    <!-- Modal -->
+    <div class="testimonial-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-image"></div>
+            <div class="modal-text">
+                <p class="full-testimonial"></p>
+                <h4 class="client-name"></h4>
+            </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank">
+                <i class="fab fa-instagram" style="color: #E1306C;"> </i>
+            </a>
+            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank">
+                <i class="fab fa-facebook" style="color: #1877F2"></i>
+            </a>
+            <a href="https://wa.me/+917004789317" target="_blank">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i></a>
+        </div>
+        <p>&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 120
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script>
+        // Add touch support for mobile devices
+        document.querySelectorAll('.service-card').forEach(card => {
+            let isTouched = false;
+            
+            card.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                isTouched = !isTouched;
+                this.classList.toggle('hover-effect', isTouched);
+            });
+            
+            card.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+            });
+            
+            card.addEventListener('touchend', function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+     <script>
+        // Carousel Logic
+        const track = document.querySelector('.carousel-track');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const pauseBtn = document.querySelector('.pause-btn');
+        const heroSection = document.querySelector('.hero');
+        
+        let currentIndex = 0;
+        let autoPlay = true;
+        let interval = setInterval(nextSlide, 5000);
+
+        function updateSlide() {
+            track.style.transform = `translateX(-${currentIndex * 20}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateSlide();
+        }
+
+        function toggleAutoPlay() {
+            autoPlay = !autoPlay;
+            heroSection.classList.toggle('paused');
+            pauseBtn.innerHTML = autoPlay ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>';
+            if(autoPlay) {
+                interval = setInterval(nextSlide, 5000);
+            } else {
+                clearInterval(interval);
+            }
+        }
+
+        // Event Listeners
+        nextBtn.addEventListener('click', () => {
+            if(autoPlay) toggleAutoPlay();
+            nextSlide();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if(autoPlay) toggleAutoPlay();
+            prevSlide();
+        });
+
+        pauseBtn.addEventListener('click', toggleAutoPlay);
+
+        // Touch Swipe Support
+        let touchStartX = 0;
+        heroSection.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        heroSection.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            
+            if(Math.abs(diff) > 50) {
+                if(diff > 0) nextSlide();
+                else prevSlide();
+                if(autoPlay) toggleAutoPlay();
+            }
+        });
+    </script>
+    <!-- Testionial Script -->
+    <!-- Add to CSS -->
+<!-- Add to CSS -->
+<style>
+    .review-button {
+    margin-top: 1rem;
+    margin-bottom: 1px;
+    margin-left: 30rem;
+            /* position: absolute; */
+            /* bottom: 10px; */
+            background: rgba(26, 26, 26, 0.9);
+            color: var(--gold);
+            padding: 1rem 2rem;
+            border: 2px solid var(--gold);
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* gap: 1rem; */
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            width:30%
+        }
+    
+        .review-button:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+    
+        @media (max-width: 768px) {
+            .review-button {
+                position: static;
+                margin: 1rem auto;
+                width: max-content;
+            }
+        }
+    /* Fixed Carousel Container */
+    .testimonials-carousel {
+        max-width: 1250px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        padding: 0 2rem;
+    }
+
+    /* Proper Track Setup */
+    .testimonial-track {
+        display: flex;
+        gap: 2rem;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        width: max-content;
+    }
+
+    /* Card Sizing */
+    .testimonial-card {
+        flex: 0 0 380px;
+        height: 450px;
+    }
+</style>
+
+<style>
+
+    /* Improved Carousel Controls */
+    .testimonial-controls {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: calc(100% - 4rem);
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        pointer-events: none;
+    }
+    .testimonial-card {
+        flex: 0 0 380px;
+        height: 450px;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        border: 2px solid var(--gold);
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .prev-testimonial,
+    .next-testimonial {
+        pointer-events: all;
+        background: rgba(26, 26, 26, 0.9);
+        border: 2px solid var(--gold);
+        color: var(--gold);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: grid;
+        place-items: center;
+        backdrop-filter: blur(5px);
+    }
+
+    /* Enable Scrolling */
+</style>
+
+<!-- Updated JavaScript -->
+<script>
+    // Proper Carousel Logic
+    const track_t = document.querySelector('.testimonial-track');
+    const prevBtn_t = document.querySelector('.prev-testimonial');
+    const nextBtn_t = document.querySelector('.next-testimonial');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const container = document.querySelector('.testimonials-carousel');
+    
+    let currentIndex_t = 0;
+    let cardsPerView = Math.floor(container.offsetWidth / 400); // 380px card + 20px gap
+
+    function updateCarousel() {
+        const cardWidth = 380 + 20; // card width + gap
+        track_t.style.transform = `translateX(-${currentIndex_t * cardWidth}px)`;
+        
+        // Disable buttons at boundaries
+        prevBtn_t.disabled = currentIndex_t === 0;
+        nextBtn_t.disabled = currentIndex_t >= cards.length - cardsPerView;
+    }
+
+    function calculateCardsPerView() {
+        cardsPerView = Math.floor(container.offsetWidth / 400);
+        updateCarousel();
+    }
+
+    prevBtn_t.addEventListener('click', () => {
+        currentIndex_t = Math.max(currentIndex_t - 1, 0);
+        updateCarousel();
+    });
+
+    nextBtn_t.addEventListener('click', () => {
+        currentIndex_t = Math.min(currentIndex_t + 1, cards.length - cardsPerView);
+        updateCarousel();
+    });
+    const modal = document.querySelector('.testimonial-modal');
+    const closeModal = document.querySelector('.close-modal');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const image = card.style.backgroundImage;
+            const text = card.dataset.fulltext;
+            const name = card.querySelector('h4').textContent;
+
+            modal.querySelector('.modal-image').style.backgroundImage = image;
+            modal.querySelector('.full-testimonial').textContent = text;
+            modal.querySelector('.client-name').textContent = name;
+            modal.style.display = 'block';
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Auto-truncate text
+    document.querySelectorAll('.testimonial-content p').forEach(p => {
+        const text = p.textContent;
+        if (text.length > 180) {
+            p.textContent = text.slice(0, 180) + '...';
+        }
+    });
+    // Handle responsive changes
+    window.addEventListener('resize', calculateCardsPerView);
+    calculateCardsPerView();
+</script>
 </body>
 </html>

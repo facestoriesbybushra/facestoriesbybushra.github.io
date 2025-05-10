@@ -1,0 +1,649 @@
+<!-- portfolio.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Face Stories by Bushra</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --black: #000000;
+            --dark-bg: #1a1a1a;
+            --sparkle-color: rgba(255, 215, 0, 0.3);
+        }
+                /* Color Scheme */
+                :root {
+            --gold: #FFD700;
+            --black: #000000;
+            --dark-bg: #1a1a1a;
+            --text-white: #ffffff;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+        }
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        /* Reuse navbar and footer styles from about page */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.98);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 2px solid var(--gold);
+            backdrop-filter: blur(8px);
+        }
+        :root {
+            --gold: #FFD700;
+            --black: #000000;
+            --dark-bg: #0a192f;
+            --sparkle: rgba(255,215,0,0.1);
+        }
+
+        body {
+            margin: 0;
+            padding-bottom: 90px; /* Footer height */
+            overflow-y: auto;
+            background: var(--dark-bg);
+        }
+
+        /* Fixed Footer */
+        .site-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--black);
+            border-top: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 100px 2rem 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            border-color: var(--gold);
+        }
+/* Footer Styles */
+.site-footer {
+            background: var(--black);
+            padding: 2rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--gold);
+        }
+
+        .social-links {
+            margin: 10px;
+        }
+
+        .social-links a {
+            color: var(--text-white);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        :root {
+            /* --dark-bg: #0a192f; Deep navy blue */
+            --dark-bg:#1a1a1a;
+            --sparkle-color: rgba(255, 215, 0, 0.3); /* Gold sparkles */
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* Image Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.55);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+        }
+
+        .modal-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-image {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .modal-image.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Modal Controls */
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--gold);
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2100;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 2100;
+        }
+
+        .nav-btn {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            display: grid;
+            place-items: center;
+        }
+
+        .nav-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                padding: 80px 1rem 2rem;
+            }
+            
+            .modal-image {
+                max-width: 100%;
+            }
+            
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+    <style>
+        /* Infinite Scroll Animation */
+        .scroll-container {
+    overflow-y: auto; /* Allow vertical scrolling */
+    height: auto; /* Let content determine height */
+    padding: 100px 2rem;
+}
+
+.scroller-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    animation: scroll 40s linear infinite;
+    padding: 2rem 0;
+}
+
+@keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+/* Add this to pause animation on scroll */
+.scroller-wrapper.paused {
+    animation-play-state: paused;
+}
+    
+        .scroller-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            animation: scroll 40s linear infinite;
+        }
+    
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+    
+        .scroller-wrapper:hover {
+            animation-play-state: paused;
+        }
+    
+        /* Duplicate items for seamless looping */
+        .scroller-wrapper::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            height: auto;
+            background: inherit;
+        }
+    
+        .portfolio-item {
+            margin-bottom: 2rem;
+        }
+    
+        /* Pause on modal open */
+        .modal-open .scroller-wrapper {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="brochure.html">Brochure</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="scroll-container">
+        <div class="scroller-wrapper">
+            <!-- Original Items -->
+            <div class="gallery-item">
+                <img src="images/portfolio1.jpg" alt="Bridal Makeup 1">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio2.jpg" alt="Bridal Makeup 2">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio3.jpg" alt="Bridal Makeup 3">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio4.jpg" alt="Bridal Makeup 4">
+            </div>
+            <div class="gallery-item">
+                <img src="images/portfolio5.jpg" alt="Bridal Makeup 4">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio6.jpg" alt="Bridal Makeup 6">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio7.jpg" alt="Bridal Makeup 7">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio8.jpg" alt="Bridal Makeup 8">
+            </div>
+            
+
+            <div class="gallery-item">
+                <img src="images/portfolio9.jpg" alt="Bridal Makeup 9">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio10.jpg" alt="Bridal Makeup 10">
+            </div>
+            
+
+            <div class="gallery-item">
+                <img src="images/portfolio11.jpg" alt="Bridal Makeup 11">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio12.jpg" alt="Bridal Makeup 12">
+            </div>
+        
+            <div class="gallery-item">
+                <img src="images/portfolio13.jpg" alt="Bridal Makeup 13">
+            </div>
+            
+
+            <div class="gallery-item">
+                <img src="images/portfolio14.jpg" alt="Bridal Makeup 14">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio15.jpg" alt="Bridal Makeup 15">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio16.jpg" alt="Bridal Makeup 16">
+            </div>
+            
+
+            <div class="gallery-item">
+                <img src="images/portfolio17.jpg" alt="Bridal Makeup 17">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/portfolio18.jpg" alt="Bridal Makeup 18">
+            </div>
+            <div class="gallery-item">
+                <img src="images/portfolio1.jpg" alt="Bridal Makeup 1">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio2.jpg" alt="Bridal Makeup 2">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio3.jpg" alt="Bridal Makeup 3">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio4.jpg" alt="Bridal Makeup 4">
+            </div>
+            <div class="gallery-item">
+                <img src="images/portfolio5.jpg" alt="Bridal Makeup 4">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio6.jpg" alt="Bridal Makeup 6">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio7.jpg" alt="Bridal Makeup 7">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio8.jpg" alt="Bridal Makeup 8">
+            </div>
+            
+
+            <div class="gallery-item">
+                <img src="images/portfolio9.jpg" alt="Bridal Makeup 9">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio10.jpg" alt="Bridal Makeup 10">
+            </div>
+            
+
+            <div class="gallery-item">
+                <img src="images/portfolio11.jpg" alt="Bridal Makeup 11">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio12.jpg" alt="Bridal Makeup 12">
+            </div>
+        
+            <div class="gallery-item">
+                <img src="images/portfolio13.jpg" alt="Bridal Makeup 13">
+            </div>
+            
+
+            <div class="gallery-item">
+                <img src="images/portfolio14.jpg" alt="Bridal Makeup 14">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio15.jpg" alt="Bridal Makeup 15">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="images/portfolio16.jpg" alt="Bridal Makeup 16">
+            </div>
+            
+
+            <div class="gallery-item">
+                <img src="images/portfolio17.jpg" alt="Bridal Makeup 17">
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/portfolio18.jpg" alt="Bridal Makeup 18">
+            </div>
+            <!-- <div class="scroll-spacer" style="height: 100vh"></div> -->
+            
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-nav">
+                <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <img class="modal-image" src="" alt="">
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank">
+                <i class="fab fa-instagram" style="color: #E1306C;"> </i>
+            </a>
+            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank">
+                <i class="fab fa-facebook" style="color: #1877F2"></i>
+            </a>
+            <a href="https://wa.me/+917004789317" target="_blank">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i></a>
+        </div>
+        <p>&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
+    </footer>
+  
+    <script>
+        // Modal Functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modal = document.querySelector('.modal');
+        const modalImage = document.querySelector('.modal-image');
+        const closeModal = document.querySelector('.modal-close');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        let currentIndex = 0;
+        const images = Array.from(galleryItems).map(item => item.querySelector('img').src);
+
+        function openModal(index) {
+            currentIndex = index;
+            modal.style.display = 'block';
+            modalImage.src = images[currentIndex];
+            setTimeout(() => {
+                modalImage.classList.add('active');
+            }, 50);
+        }
+
+        function navigate(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            modalImage.classList.remove('active');
+            setTimeout(() => {
+                modalImage.src = images[currentIndex];
+                modalImage.classList.add('active');
+            }, 300);
+        }
+
+        // Event Listeners
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => openModal(index));
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalImage.classList.remove('active');
+        });
+
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        // Swipe Support
+        let touchStartX = 0;
+        modal.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        modal.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                diff > 0 ? navigate(1) : navigate(-1);
+            }
+        });
+
+        // Close modal on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalImage.classList.remove('active');
+            }
+        });
+    </script>
+    <script>
+        // Clone items for infinite scroll
+        const scrollWrapper = document.querySelector('.scroller-wrapper');
+        const items = document.querySelectorAll('.gallery-item');
+        
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            scrollWrapper.appendChild(clone);
+        });
+    
+        // Pause animation when modal opens
+        document.addEventListener('modalOpen', () => {
+            document.body.classList.add('modal-open');
+        });
+    
+        document.addEventListener('modalClose', () => {
+            document.body.classList.remove('modal-open');
+        });
+    
+        // Restart animation when reaching end
+        scrollWrapper.addEventListener('animationiteration', () => {
+            // Reset cloned items position if needed
+        });
+    </script>
+
+    
+    <script>
+        // Add scroll event listener
+let isScrolling;
+const scroller = document.querySelector('.scroller-wrapper');
+
+window.addEventListener('scroll', () => {
+    // Clear timeout if exists
+    clearTimeout(isScrolling);
+    
+    // Add paused class
+    scroller.classList.add('paused');
+    
+    // Remove paused class after 2 seconds of inactivity
+    isScrolling = setTimeout(() => {
+        scroller.classList.remove('paused');
+    }, 100);
+});
+
+// Touch/mouse wheel detection
+document.addEventListener('wheel', handleInteraction);
+document.addEventListener('touchmove', handleInteraction);
+
+function handleInteraction() {
+    scroller.classList.add('paused');
+    clearTimeout(isScrolling);
+    isScrolling = setTimeout(() => {
+        scroller.classList.remove('paused');
+    }, 2000);
+}
+    </script>
+</body>
+</html>

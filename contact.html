@@ -1,0 +1,484 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Face Stories by Bushra</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+       :root {
+            --gold: #FFD700;
+            --black: #000000;
+            --dark-bg: #1a1a1a;
+            --text-white: #ffffff;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+        }
+        /* Reuse existing navbar and footer styles */
+        
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        /* Reuse navbar and footer styles from about page */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.98);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 2px solid var(--gold);
+            backdrop-filter: blur(8px);
+        }
+        :root {
+            /* --dark-bg: #0a192f; Deep navy blue */
+            --dark-bg:#1a1a1a;
+            --sparkle-color: rgba(255, 215, 0, 0.3); /* Gold sparkles */
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - 160px);
+            padding: 100px 2rem 4rem;
+            gap: 3rem;
+            background: var(--dark-bg);
+        }
+        .site-footer {
+            background: var(--black);
+            padding: 2rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--gold);
+        }
+
+        .social-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-white);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,215,0,0.1);
+            border: 2px solid var(--gold);
+            color: var(--text-white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(255,215,0,0.3);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFD700'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        .submit-btn {
+            background: var(--gold);
+            color: var(--black);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.1);
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+            color: var(--text-white);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,215,0,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--gold);
+        }
+        #glitter-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* z-index: -1; */
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 80px 1rem 2rem;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+    <style>
+        .reviews-section {
+            padding: 4rem 2rem;
+            background: var(--dark-bg);
+        }
+    
+        .map-review-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            border: 3px solid var(--gold);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+    
+        .review-iframe {
+            display: block;
+            filter: grayscale(20%);
+            transition: filter 0.3s ease;
+        }
+    
+        .review-iframe:hover {
+            filter: grayscale(0%);
+        }
+    
+        .review-button {
+            align-self: center;
+    margin-top: 1rem;
+    margin-left: 8rem;
+            position: absolute;
+            /* bottom: 20px;
+            right: 20px; */
+            background: rgba(26, 26, 26, 0.9);
+            color: var(--gold);
+            padding: 1rem 2rem;
+            border: 2px solid var(--gold);
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+    
+        .review-button:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+    
+        @media (max-width: 768px) {
+            .review-button {
+                position: static;
+                margin: 1rem auto;
+                width: max-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="glitter-canvas"></canvas>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="brochure.html">Brochure</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form" data-aos="fade-right">
+            <h2 style="color: var(--gold); margin-bottom: 2rem;">Get in Touch</h2>
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service" class="form-control" required>
+                        <option value="">Select Service</option>
+                        <option>Bridal Makeup</option>
+                        <option>Engagement Makeup</option>
+                        <option>Party Makeup</option>
+                        <option>Makeup Workshop</option>
+                        <option>Consultation</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Contact Info & Map -->
+        <div class="contact-info" data-aos="fade-left">
+            <div class="reviews-section">
+                <!-- <h2 style="color: var(--gold); margin-bottom: 2rem; text-align: center;">Client Reviews</h2> -->
+                <div class="map-review-container">
+                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.961347520975!2d86.1776772754671!3d22.803896079327647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e53610208475%3A0x3f74c1e5f8b37d3e!2sBushra%20Fatma%20-%20Best%20Makeup%20Artist%20%7C%20Best%20Bridal%20Makeup%20Artist%20Jamshedpur!5e0!3m2!1sen!2sin!4v1746912502814!5m2!1sen!2sin" 
+                            width="600" 
+                            height="350" 
+                            style="border:0;" 
+                            allowfullscreen="yes" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe> -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.961347520975!2d86.1776772754671!3d22.803896079327647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e53610208475%3A0x3f74c1e5f8b37d3e!2sBushra%20Fatma%20-%20Best%20Makeup%20Artist%20%7C%20Best%20Bridal%20Makeup%20Artist%20Jamshedpur!5e0!3m2!1sen!2sin!4v1746912502814!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="350" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            class="review-iframe">
+                    </iframe>
+                </div>
+            </div>
+            <div class="contact-details">
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: var(--gold); margin: 0;">Studio Address</h3>
+                        <p>3rd floor, Multazim Tower, Masjid Road Opposite Arka Jain University Office,<br> Beside Pooja Medicals, Dhatkidih, Jamshedpur<br>Jharkhand - 831002</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--gold); margin: 0;">Call Us</h3>
+                        <p>+91 7004789317<br>+91 6205866842</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--gold); margin: 0;">Email</h3>
+                        <p>facestoriesbybushra@gmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Footer -->
+     <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank">
+                <i class="fab fa-instagram" style="color: #E1306C;"> </i>
+            </a>
+            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank">
+                <i class="fab fa-facebook" style="color: #1877F2"></i>
+            </a>
+            <a href="https://wa.me/+917004789317" target="_blank">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i></a>
+        </div>
+        <p>&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize animations
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 120
+        });
+    </script>
+        <script>
+            // Glitter Background Animation
+            const canvas = document.getElementById('glitter-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+    
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+    
+            function createParticles() {
+                particles = [];
+                const particleCount = window.innerWidth * 0.3;
+                
+                for(let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: Math.random() * 2,
+                        speed: Math.random() * 0.5 + 0.1,
+                        opacity: Math.random() * 0.5
+                    });
+                }
+            }
+    
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.y += particle.speed;
+                    particle.opacity += (Math.random() - 0.5) * 0.1;
+                    particle.opacity = Math.max(0, Math.min(1, particle.opacity));
+                    
+                    if(particle.y > canvas.height) {
+                        particle.y = 0;
+                        particle.x = Math.random() * canvas.width;
+                    }
+                    
+                    ctx.beginPath();
+                    ctx.fillStyle = `rgba(255, 215, 0, ${particle.opacity})`;
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                
+                requestAnimationFrame(animate);
+            }
+    
+            // Initialize
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                createParticles();
+            });
+            
+            resizeCanvas();
+            createParticles();
+            animate();
+    
+            // Rest of AOS initialization remains same
+        </script>
+</body>
+</html>
