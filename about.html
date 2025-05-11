@@ -217,11 +217,20 @@
         }
 
         @media (max-width: 768px) {
+            .about-content {
+            flex: 1;
+            padding: 0rem;
+        }
+        .signature{
+            text-align: center;
+        }
             .about-section {
                 flex-direction: column;
                 padding: 100px 1rem 2rem;
             }
-
+            .nav-links{
+                gap: 1rem;
+            }
             .artist-name {
                 font-size: 3.5rem;
                 text-align: center;
@@ -234,6 +243,12 @@
             .profile-image {
                 max-width: 300px;
             }
+
+            /* body {
+            background-color: var(--dark-bg);
+            position: absolute;
+            overflow-x: hidden;
+        } */
         }
     </style>
 </head>
