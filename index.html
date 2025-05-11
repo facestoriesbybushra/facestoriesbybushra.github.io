@@ -12,7 +12,7 @@
         :root {
             --gold: #FFD700;
             --black: #000000;
-            --dark-bg: #1a1a1a;
+            --dark-bg: #000000;
             --text-white: #ffffff;
         }
 
@@ -483,7 +483,7 @@
         /* Testimonials Section */
         .testimonials {
             padding: 5rem 2rem;
-            background: var(--black);
+            /* background: var(--black); */
             position: relative;
         }
     
@@ -603,6 +603,12 @@
             font-size: 2rem;
             cursor: pointer;
         }
+        #glitter-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* z-index: -1; */
+        }
     
         @media (max-width: 768px) {
             .testimonial-card {
@@ -624,6 +630,7 @@
 </head>
 <body>
     <!-- Navigation -->
+    <canvas id="glitter-canvas"></canvas>
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -811,6 +818,15 @@
               <h4>- Juhi Agarwal</h4>
           </div>
       </div>
+      <div class="testimonial-card" data-aos="fade-up" 
+           style="background-image: url('images/client3.png')"
+           data-fulltext="As someone who rarely wears makeup, I was quite skeptical about choosing a makeup artist. I didn’t want to risk looking like someone else on my day. But I’m so glad I chose you, Bushra, and your wonderful team! You were incredibly sweet and understanding throughout the entire day. Without needing too much explanation, you read my mind perfectly and delivered exactly what I was hoping for. I felt like myself—comfortable, confident, and absolutely beautiful! Thanks a ton ❣️">
+          <div class="card-blur"></div>
+          <div class="testimonial-content">
+              <p>"BAs someone who rarely wears makeup, ..."</p>
+              <h4>- Juhi Agarwal</h4>
+          </div>
+      </div>
       
                 
                 <!-- Continue adding testimonials 3-10 -->
@@ -966,6 +982,71 @@
     <!-- Testionial Script -->
     <!-- Add to CSS -->
 <!-- Add to CSS -->
+<script>
+    // Initialize animations
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 120
+    });
+    // Glitter Background Animation
+    const canvas = document.getElementById('glitter-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function createParticles() {
+        particles = [];
+        const particleCount = window.innerWidth * 0.3;
+        
+        for(let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2,
+                speed: Math.random() * 0.5 + 0.1,
+                opacity: Math.random() * 0.5
+            });
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+            particle.y += particle.speed;
+            particle.opacity += (Math.random() - 0.5) * 0.1;
+            particle.opacity = Math.max(0, Math.min(1, particle.opacity));
+            
+            if(particle.y > canvas.height) {
+                particle.y = 0;
+                particle.x = Math.random() * canvas.width;
+            }
+            
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(255, 215, 0, ${particle.opacity})`;
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        
+        requestAnimationFrame(animate);
+    }
+
+    // Initialize
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        createParticles();
+    });
+    
+    resizeCanvas();
+    createParticles();
+    animate();
+
+</script>
 <style>
     .review-button {
     margin-top: 1rem;
