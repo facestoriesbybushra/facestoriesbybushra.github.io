@@ -38,25 +38,31 @@
         /* Navigation */
         .navbar {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(26, 26, 26, 0.98);
             z-index: 1000;
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             border-bottom: 2px solid var(--gold);
+            backdrop-filter: blur(8px);
         }
 
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 1.5rem;
             list-style: none;
+            padding: 0 1rem;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             color: var(--text-white);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -96,7 +102,7 @@
         /* Services Section */
         .services {
             padding: 5rem 2rem;
-/*             background: var(--black); */
+            /* background: var(--black); */
         }
 
         .services h2 {
@@ -634,6 +640,15 @@
         .testimonials-carousel {
             padding: 0rem 0rem;
         }
+        .nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
             .hero1 {
                 background-image: url('images/hero1_phone.jpg');
             }
@@ -756,7 +771,6 @@
         <h2 data-aos="fade-up">Client Testimonials</h2>
         <div class="testimonials-carousel">
             <div class="testimonial-track">
-                <!-- Testimonial Cards (Duplicate and update content for 10) -->
                 <div class="testimonial-card" data-aos="fade-up" 
                      style="background-image: url('images/client1.png')"
                      data-fulltext="I had an amazing experience with Bushra and her team,  and I can’t thank them enough! As a client, I was looking for someone who could create a natural yet elegant look, and they absolutely nailed it.
@@ -769,9 +783,6 @@
                         <h4>- Ankita Pandey</h4>
                     </div>
                 </div>
-    
-                <!-- Add 9 more testimonials following the same pattern -->
-                <!-- Example Testimonial 2 -->
                 <div class="testimonial-card" data-aos="fade-up" 
                      style="background-image: url('images/client2.png')"
                      data-fulltext="Every single person complimented the make up, better than what I had envisioned for myself. Made me feel so confident and happy on my D-day. Apart from her artistic skills, her warm behaviour is also praise worthy, entire process becomes so smooth and stress free.">
@@ -932,7 +943,7 @@
             });
         });
     </script>
-<!--     <script>
+    <!-- <script>
         // Add touch support for mobile devices
         document.querySelectorAll('.service-card').forEach(card => {
             let isTouched = false;
