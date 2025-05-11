@@ -3,13 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About - Face Stories by Bushra</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-                /* Color Scheme */
         :root {
             --gold: #FFD700;
             --black: #000000;
@@ -17,7 +16,6 @@
             --text-white: #ffffff;
         }
 
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -29,6 +27,7 @@
             background-color: var(--dark-bg);
             color: var(--text-white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
@@ -36,70 +35,45 @@
             color: var(--gold);
         }
 
-        /* Reuse existing navbar and footer styles */
-        /* .navbar {
-            position: fixed;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.95);
-            z-index: 1000;
-            padding: 1.2rem 0;
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-white);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        } */
-
         .navbar {
-    position: fixed;
-    top: 0;  /* Add this */
-    left: 0; /* Add this */
-    width: 100%;
-    background: rgba(26, 26, 26, 0.98); /* Increased opacity */
-    z-index: 1000;
-    padding: 1.2rem 0;
-    border-bottom: 2px solid var(--gold);
-    backdrop-filter: blur(8px); /* Adds frosted glass effect */
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.98);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--gold);
+            backdrop-filter: blur(8px);
+        }
 
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 1.5rem;
             list-style: none;
+            padding: 0 1rem;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             color: var(--text-white);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
             color: var(--gold);
         }
-        /* About Section Styles */
+
         .about-section {
-            padding: 100px 2rem 4rem;
+            padding: 90px 2rem 4rem;
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
         }
 
@@ -108,7 +82,7 @@
             max-width: 500px;
             border-radius: 15px;
             overflow: hidden;
-            border: 3px solid var(--gold);
+            border: 2px solid var(--gold);
             box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
         }
 
@@ -116,68 +90,70 @@
             width: 100%;
             height: auto;
             display: block;
+            object-fit: cover;
         }
 
         .about-content {
             flex: 1;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .artist-name {
             font-family: 'Great Vibes', cursive;
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             color: var(--gold);
             margin-bottom: 1.5rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            text-align: center;
         }
 
         .about-text {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.8;
-            margin-bottom: 2rem;
-            color:#ffffff;
+            margin-bottom: 1.5rem;
+            color: var(--text-white);
         }
 
         .achievements-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .achievement-item {
             background: rgba(255, 215, 0, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
+            padding: 1.2rem;
+            border-radius: 8px;
             border: 1px solid var(--gold);
             text-align: center;
         }
 
         .achievement-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 0.5rem;
         }
 
         .achievement-text {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color:#ffffff;
+            letter-spacing: 0.5px;
+            color: var(--text-white);
         }
 
         .signature {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--gold);
-            margin-top: 2rem;
+            margin-top: 1.5rem;
+            text-align: center;
         }
 
-        /* Footer Styles */
         .site-footer {
             background: var(--black);
-            padding: 2rem 2rem;
+            padding: 2rem 1rem;
             text-align: center;
             border-top: 2px solid var(--gold);
         }
@@ -188,27 +164,11 @@
 
         .social-links a {
             color: var(--text-white);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin: 0 1rem;
             transition: color 0.3s ease;
         }
 
-        .social-links a:hover {
-            color: var(--gold);
-        }
-        :root {
-            /* --dark-bg: #0a192f; Deep navy blue */
-            --dark-bg:#000000;
-            --sparkle-color: rgba(255, 215, 0, 0.3); /* Gold sparkles */
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Glitter Background Effect */
         #glitter-canvas {
             position: fixed;
             top: 0;
@@ -217,44 +177,81 @@
         }
 
         @media (max-width: 768px) {
-            .about-content {
-            flex: 1;
-            padding: 0rem;
-        }
-        .signature{
-            text-align: center;
-        }
             .about-section {
                 flex-direction: column;
-                padding: 100px 1rem 2rem;
+                padding: 80px 1rem 2rem;
+                gap: 2rem;
             }
-            .nav-links{
-                gap: 1rem;
-            }
+
             .artist-name {
-                font-size: 3.5rem;
-                text-align: center;
+                font-size: 2.8rem;
+            }
+
+            .profile-image {
+                max-width: 400px;
+            }
+
+            .about-content {
+                padding: 0;
             }
 
             .achievements-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .achievement-item {
+                padding: 1rem;
+            }
+
+            .achievement-number {
+                font-size: 1.8rem;
+            }
+
+            .about-text {
+                font-size: 0.95rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .artist-name {
+                font-size: 2.2rem;
             }
 
             .profile-image {
                 max-width: 300px;
             }
 
-            /* body {
-            background-color: var(--dark-bg);
-            position: absolute;
-            overflow-x: hidden;
-        } */
+            .achievement-number {
+                font-size: 1.6rem;
+            }
+
+            .achievement-text {
+                font-size: 0.8rem;
+            }
+
+            .signature {
+                font-size: 1.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .social-links a {
+                font-size: 1.2rem;
+                margin: 0 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <canvas id="glitter-canvas"></canvas>
-    <!-- Navigation -->
+    
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -265,12 +262,9 @@
         </ul>
     </nav>
 
-    <!-- About Section -->
-     
     <section class="about-section">
-
         <div class="profile-image" data-aos="fade-right">
-            <img src="images/about-image.jpg" alt="Bushra Fatma">
+            <img src="images/about-image.jpg" alt="Bushra Fatma - Professional Makeup Artist">
         </div>
 
         <div class="about-content" data-aos="fade-left">
@@ -301,62 +295,61 @@
                 Mickey Contractor and Namrata Soni, she combines traditional techniques with modern trends to create 
                 timeless looks that tell your unique story.
             </p>
-<!-- 
-            <p class="about-text">
-                Featured in Vogue Brides India and recipient of the "Best Bridal Makeup Artist" award at the 
-                2022 Beauty Excellence Awards, Bushra's artistry has graced celebrity weddings and international 
-                fashion shows. Her signature "Glamorous Yet Natural" approach has made her the preferred choice 
-                for discerning brides across Eastern India.
-            </p> -->
 
             <div class="signature">Bushra Fatma</div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="social-links">
-            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank">
-                <i class="fab fa-instagram" style="color: #E1306C;"> </i>
+            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram" style="color: #E1306C;"></i>
             </a>
-            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank">
-                <i class="fab fa-facebook" style="color: #1877F2"></i>
+            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook" style="color: #1877F2;"></i>
             </a>
-            <a href="https://wa.me/+917004789317" target="_blank">
-                <i class="fab fa-whatsapp" style="color: #25D366;"></i></a>
+            <a href="https://wa.me/+917004789317" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+            </a>
         </div>
         <p>&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize animations
         AOS.init({
-            duration: 1000,
+            duration: 800,
             once: true,
-            offset: 120
+            offset: 100
         });
-        // Glitter Background Animation
+
+        // Optimized glitter animation
         const canvas = document.getElementById('glitter-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
+        let particleCount = Math.floor(window.innerWidth * 0.1);
+
+        function init() {
+            resizeCanvas();
+            createParticles();
+            animate();
+        }
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            particleCount = Math.floor(window.innerWidth * 0.1);
         }
 
         function createParticles() {
             particles = [];
-            const particleCount = window.innerWidth * 0.3;
-            
             for(let i = 0; i < particleCount; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    size: Math.random() * 2,
-                    speed: Math.random() * 0.5 + 0.1,
-                    opacity: Math.random() * 0.5
+                    size: Math.random() * 1.2,
+                    speed: Math.random() * 0.3 + 0.1,
+                    opacity: Math.random() * 0.3
                 });
             }
         }
@@ -366,9 +359,6 @@
             
             particles.forEach(particle => {
                 particle.y += particle.speed;
-                particle.opacity += (Math.random() - 0.5) * 0.1;
-                particle.opacity = Math.max(0, Math.min(1, particle.opacity));
-                
                 if(particle.y > canvas.height) {
                     particle.y = 0;
                     particle.x = Math.random() * canvas.width;
@@ -383,16 +373,12 @@
             requestAnimationFrame(animate);
         }
 
-        // Initialize
         window.addEventListener('resize', () => {
             resizeCanvas();
             createParticles();
         });
-        
-        resizeCanvas();
-        createParticles();
-        animate();
 
+        init();
     </script>
 </body>
 </html>
