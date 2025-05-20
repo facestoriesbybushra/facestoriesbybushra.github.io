@@ -471,6 +471,12 @@
 }
         /* Responsive Design */
         @media (max-width: 768px) {
+
+            .testimonial-card {
+        flex: 0 0 250px;
+        height: 350px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -490,7 +496,6 @@
         /* Testimonials Section */
         .testimonials {
             padding: 5rem 2rem;
-            /* background: var(--black); */
             position: relative;
         }
     
@@ -518,7 +523,7 @@
         }
     
         .testimonial-card {
-            flex: 0 0 380px;
+            flex: 0 0 300px;
             height: 450px;
             border-radius: 10px;
             position: relative;
@@ -634,6 +639,11 @@
         }   
 
         @media (max-width: 768px) {
+
+            .testimonial-card {
+        flex: 0 0 250px;
+        height: 350px;
+            }
             .nav-links {
             gap: 1rem;
         }
@@ -668,8 +678,8 @@
     
         @media (max-width: 768px) {
             .testimonial-card {
-                flex: 0 0 300px;
-                height: 400px;
+        flex: 0 0 250px;
+        height: 350px;
             }
     
             .modal-content {
@@ -911,14 +921,15 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="social-links">
-            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank">
-                <i class="fab fa-instagram" style="color: #E1306C;"> </i>
+            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram" style="color: #E1306C;"></i>
             </a>
-            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank">
-                <i class="fab fa-facebook" style="color: #1877F2"></i>
+            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook" style="color: #1877F2;"></i>
             </a>
-            <a href="https://wa.me/+917004789317" target="_blank">
-                <i class="fab fa-whatsapp" style="color: #25D366;"></i></a>
+            <a href="https://wa.me/+917004789317" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+            </a>
         </div>
         <p>&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
     </footer>
@@ -1128,6 +1139,11 @@
         }
     
         @media (max-width: 768px) {
+            .testimonial-card {
+        flex: 0 0 250px;
+        height: 350px;
+            }
+
             .review-button {
                 position: static;
                 margin: 1rem auto;
@@ -1214,10 +1230,22 @@
     let currentIndex_t = 0;
     let cardsPerView = Math.floor(container.offsetWidth / 400); // 380px card + 20px gap
 
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
     function updateCarousel() {
-        const cardWidth = 380 + 20; // card width + gap
-        track_t.style.transform = `translateX(-${currentIndex_t * cardWidth}px)`;
-        
+        let cardWidth = 380 + 20; // card width + gap
+        track_t.style.transform = `translateX(-${currentIndex_t * (cardWidth+15)}px)`;
+        if (isMobile) {
+            cardWidth = 250 + 20;
+            // Mobile-specific code
+            console.log('Mobile device detected');
+            track_t.style.transform = `translateX(-${currentIndex_t * (cardWidth)}px)`;
+        } else {
+            cardWidth = 380 + 20;
+            // Desktop-specific code
+            console.log('Desktop detected');
+            track_t.style.transform = `translateX(-${currentIndex_t * (cardWidth+15)}px)`;
+        }
         // Disable buttons at boundaries
         prevBtn_t.disabled = currentIndex_t === 0;
         nextBtn_t.disabled = currentIndex_t >= cards.length - cardsPerView;
