@@ -312,7 +312,13 @@
     <div class="contact-container">
         <div class="contact-form" data-aos="fade-right">
             <h2>Get in Touch</h2>
-            <form netlify>
+            <form 
+                netlify  
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                action="/success.html"
+                >
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" class="form-control" required>
