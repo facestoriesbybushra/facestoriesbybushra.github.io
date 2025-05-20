@@ -3,146 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Received Successfully - Face Stories by Bushra</title>
+    <title>Message Received - Face Stories by Bushra</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Success Page Styles */
-.success-container {
-    max-width: 1200px;
-    margin: 100px auto;
-    padding: 0 20px;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        /* Success Page Specific Styles */
+        .success-wrapper {
+            background: #000000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-sizing: border-box;
+            padding: 0; /* Remove any default padding */
+            margin: 0; /* Remove any default margin */
+        }
 
-.success-card {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    text-align: center;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.6s ease;
-    max-width: 600px;
-    width: 100%;
-}
+        .success-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+        }
 
-.success-icon {
-    color: #ff6b6b; /* Your brand pink color */
-    font-size: 4rem;
-    margin-bottom: 20px;
-    animation: bounce 1s ease;
-}
+        .success-card {
+            background: #000000;
+            border: 2px solid #D4AF37;
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
+        .success-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transform: rotate(45deg);
+            z-index: 0;
+        }
 
-.success-card h1 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 2.2rem;
-}
+        .success-icon {
+            color: #D4AF37;
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
 
-.success-text {
-    color: #666;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
+        .success-card h1 {
+            color: #D4AF37;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
 
-.success-btn {
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
+        .success-text {
+            color: #ffffff;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
 
-.success-btn:hover {
-    background: #ff5252;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255,107,107,0.3);
-}
+        .success-btn {
+            background: #D4AF37;
+            color: #000000;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+            display: inline-block; /* Change to inline-block if using <a> tag */
+            text-decoration: none; /* Remove underline */
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: #000000; /* Match your black theme */
+        }
 
-.additional-options {
-    margin-top: 25px;
-    color: #888;
-}
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000000;
+            z-index: -1;
+        }
+        .success-btn:hover {
+            background: #000000;
+            color: #D4AF37;
+            border-color: #D4AF37;
+            transform: translateY(-2px);
+        }
 
-.additional-options a {
-    color: #ff6b6b;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+        .additional-options {
+            margin-top: 2rem;
+            color: #888;
+            position: relative;
+            z-index: 1;
+        }
 
-.additional-options a:hover {
-    color: #ff5252;
-}
+        .additional-options a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
 
-@media (max-width: 768px) {
-    .success-card {
-        padding: 30px 20px;
-        margin: 0 15px;
-    }
-    
-    .success-card h1 {
-        font-size: 1.8rem;
-    }
-    
-    .success-text {
+        .additional-options a:hover {
+            opacity: 0.8;
+        }
+
+        .main-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .success-btn:active {
+    transform: scale(0.98);
+    background: #000000 !important;
+    color: #D4AF37 !important;
+}
+        .logo {
+            max-width: 180px; /* Ideal size for desktop */
+            height: auto;
+            margin: 0 auto 2rem;
+            display: block;
+            transition: transform 0.3s ease;
+            /* Gold accent effect to match theme */
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                max-width: 140px; /* Slightly smaller for mobile */
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 120px;
+            }
+        }
+
+        /* Optional hover effect */
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .success-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .success-card h1 {
+                font-size: 2rem;
+            }
+            
+            .success-text {
+                font-size: 1rem;
+            }
+            
+            .success-btn {
+        width: 100%; /* Full width on mobile */
+        padding: 1rem 1.5rem; /* Increase tap target size */
         font-size: 1rem;
+        display: block; /* Make it a block element */
+        margin: 0 auto; /* Center if not full-width */
     }
-    
-    .success-btn {
-        padding: 12px 30px;
-        font-size: 1rem;
+
+    /* Prevent text wrapping */
+    .success-btn span {
+        white-space: nowrap;
+        display: inline-block;
     }
-}
+        }
     </style>
 </head>
 <body>
-    <div class="success-container">
-        <div class="success-card">
-            <div class="success-icon">
-                <i class="fas fa-check-circle"></i>
+    <div class="main-container">
+    <div class="success-wrapper">
+        <div class="success-content">
+            <div class="success-card">
+                <a href="index.html"><img class="logo" src="images/logo.png" ></img></a>
+                <h1>Message Received</h1>
+                <p class="success-text">
+                    Thank you for your submission. Your message has been successfully delivered.<br>
+                    I will respond to your inquiry within 24-48 hours.
+                </p>
+                <a href="contact.html" class="success-btn"><span>Return to Contact</span></a>
+                <p class="additional-options">
+                    or go back to <a href="index.html">Homepage</a>
+                </p>
             </div>
-            <h1>Message Received!</h1>
-            <p class="success-text">
-                Thank you for reaching out! I've received your message and will get back to you within 24-48 hours.
-            </p>
-            <button onclick="window.history.back()" class="success-btn">
-                Return to Contact Page
-            </button>
-            <p class="additional-options">
-                or go back to <a href="index.html">Homepage</a>
-            </p>
         </div>
     </div>
+</div>
 
-    <!-- Footer (Matches your existing footer if any) -->
-    <footer class="footer">
-        <!-- Add your existing footer content here -->
-    </footer>
+    <!-- Footer (Add your existing footer here if needed) -->
 
     <script>
-        // Optional: Add animation effects
+        // Add subtle animation
         document.addEventListener('DOMContentLoaded', function() {
-            const successCard = document.querySelector('.success-card');
-            successCard.style.transform = 'translateY(0)';
-            successCard.style.opacity = '1';
+            const elements = document.querySelectorAll('.success-icon, .success-card h1, .success-text');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
         });
     </script>
 </body>
