@@ -68,7 +68,9 @@ FSB/
     │   │   ├── photo-wall.js        Portfolio looping columns
     │   │   ├── image-lightbox.js    Full-resolution photo viewer
     │   │   ├── award-slider.js      About-page award clips
-    │   │   └── video-lightbox.js    Award clip with sound
+    │   │   ├── video-lightbox.js    Award clip with sound
+    │   │   ├── contact-form.js      Validation, double/duplicate-send guard
+    │   │   └── force-download.js    Makes the brochure download, not open
     │   └── pages/          Entry point per page; wires modules together
     │
     ├── img/
@@ -156,6 +158,25 @@ event, so a completed enquiry registers as a conversion in both dashboards.
 
 The form in `contact.html` is currently wired for **Netlify Forms**
 (`data-netlify="true"` plus the hidden `form-name` input).
+
+`assets/js/modules/contact-form.js` enforces the submission rules:
+
+- **No blank answers.** Every field is checked after trimming, so a field
+  containing only spaces counts as empty. Errors appear under each field.
+  Phone needs 10–13 digits; message needs at least 5 characters.
+- **No double sends.** The button locks and shows "Sending…" until the
+  submission finishes.
+- **No repeat enquiries.** After a successful send, a fingerprint of the
+  enquiry is kept in the visitor's browser for 24 hours. Sending the identical
+  enquiry again (ignoring case, spacing and phone formatting) is blocked with a
+  message pointing to WhatsApp. A failed send is never recorded, so retrying
+  always works.
+- **Bots:** a hidden honeypot field (`bot-field`) — Netlify silently discards
+  any submission that fills it in.
+
+The limits live as constants at the top of `contact-form.js`. These rules run
+in the browser, so they stop honest mistakes rather than someone deliberately
+posting to Netlify; the honeypot and Netlify's built-in spam filter cover that.
 
 **This only works if the site is hosted on Netlify.** Processing a form
 submission needs a server, and GitHub Pages only serves files — it has nothing

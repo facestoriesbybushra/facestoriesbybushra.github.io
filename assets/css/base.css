@@ -13,6 +13,7 @@
     --color-surface-nav: rgba(26, 26, 26, 0.98);
     --color-text: #ffffff;
     --color-text-muted: #cccccc;
+    --color-error: #ff6b6b;
 
     /* Typography */
     --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;

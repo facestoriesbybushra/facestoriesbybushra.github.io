@@ -63,6 +63,39 @@ textarea.field__control {
     min-height: 120px;
 }
 
+.field__control[aria-invalid='true'] {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 1px var(--color-error);
+}
+
+.field__error {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+
+/* Form-level message under the submit button */
+.form-status {
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+}
+
+.form-status--error {
+    border: 1px solid var(--color-error);
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.form-status--info {
+    border: 1px solid var(--color-gold);
+    background: var(--color-gold-soft);
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+}
+
 /* --------------------------------------------------------------------------
    Studio details
    -------------------------------------------------------------------------- */

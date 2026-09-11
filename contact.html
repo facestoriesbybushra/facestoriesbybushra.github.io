@@ -55,6 +55,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script defer src="assets/js/modules/glitter-canvas.js"></script>
     <script defer src="assets/js/modules/scroll-animations.js"></script>
+    <script defer src="assets/js/modules/contact-form.js"></script>
     <script defer src="assets/js/pages/contact.js"></script>
 
     <!-- Meta Pixel -->
@@ -110,27 +111,49 @@
                   endpoint (Formspree, a serverless function, etc.) or the form
                   will silently do nothing.
                 -->
-                <form name="contact" method="POST" data-netlify="true" action="/success.html">
+                <!--
+                  contact-form.js adds validation, blocks double and duplicate
+                  sends, and submits over fetch. The attributes below are the
+                  no-JavaScript fallback: `pattern` rejects answers that are
+                  only spaces, which `required` alone lets through.
+                -->
+                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+                      action="/success.html" data-contact-form>
                     <input type="hidden" name="form-name" value="contact">
+
+                    <!-- Honeypot: invisible to people, filled in by bots; Netlify discards those. -->
+                    <p class="visually-hidden" aria-hidden="true">
+                        <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                    </p>
 
                     <div class="field">
                         <label class="field__label" for="name">Full Name</label>
-                        <input class="field__control" type="text" id="name" name="name" autocomplete="name" required>
+                        <input class="field__control" type="text" id="name" name="name" autocomplete="name"
+                               required minlength="2" pattern=".*\S.*" title="Please enter your name"
+                               aria-describedby="name-error">
+                        <p class="field__error" id="name-error" hidden></p>
                     </div>
 
                     <div class="field">
                         <label class="field__label" for="email">Email Address</label>
-                        <input class="field__control" type="email" id="email" name="email" autocomplete="email" required>
+                        <input class="field__control" type="email" id="email" name="email" autocomplete="email"
+                               required aria-describedby="email-error">
+                        <p class="field__error" id="email-error" hidden></p>
                     </div>
 
                     <div class="field">
                         <label class="field__label" for="phone">Phone Number</label>
-                        <input class="field__control" type="tel" id="phone" name="phone" autocomplete="tel" required>
+                        <input class="field__control" type="tel" id="phone" name="phone" autocomplete="tel"
+                               inputmode="tel" required pattern="\+?[0-9 ]{10,15}"
+                               title="10-digit phone number, optionally starting with +91"
+                               aria-describedby="phone-error">
+                        <p class="field__error" id="phone-error" hidden></p>
                     </div>
 
                     <div class="field">
                         <label class="field__label" for="service">Service Needed</label>
-                        <select class="field__control" id="service" name="service" required>
+                        <select class="field__control" id="service" name="service" required
+                                aria-describedby="service-error">
                             <option value="">Select Service</option>
                             <option>Bridal Makeup</option>
                             <option>Engagement Makeup</option>
@@ -138,14 +161,18 @@
                             <option>Makeup Workshop</option>
                             <option>Consultation</option>
                         </select>
+                        <p class="field__error" id="service-error" hidden></p>
                     </div>
 
                     <div class="field">
                         <label class="field__label" for="message">Message</label>
-                        <textarea class="field__control" id="message" name="message" rows="5" required></textarea>
+                        <textarea class="field__control" id="message" name="message" rows="5"
+                                  required minlength="5" aria-describedby="message-error"></textarea>
+                        <p class="field__error" id="message-error" hidden></p>
                     </div>
 
-                    <button type="submit" class="btn btn--solid btn--block">Send Message</button>
+                    <button type="submit" class="btn btn--solid btn--block" data-submit>Send Message</button>
+                    <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
                 </form>
             </section>
 
