@@ -1,489 +1,222 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Contact - Face Stories by Bushra</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact &amp; Book | Face Stories by Bushra, Jamshedpur</title>
+    <meta name="description" content="Book bridal or party makeup with Face Stories by Bushra in Jamshedpur. Studio at Dhatkidih — call +91 7004789317 or message on WhatsApp/Instagram.">
+    <link rel="canonical" href="https://facestoriesbybushra.com/contact.html">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Face Stories by Bushra">
+    <meta property="og:title" content="Contact &amp; Book | Face Stories by Bushra">
+    <meta property="og:description" content="Book bridal or party makeup in Jamshedpur — call, WhatsApp, or fill the enquiry form.">
+    <meta property="og:url" content="https://facestoriesbybushra.com/contact.html">
+    <meta property="og:image" content="https://facestoriesbybushra.com/assets/img/portfolio/portfolio-01.jpg">
+    <meta property="og:locale" content="en_IN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact &amp; Book | Face Stories by Bushra">
+    <meta name="twitter:description" content="Book bridal or party makeup in Jamshedpur — call, WhatsApp, or fill the enquiry form.">
+    <meta name="twitter:image" content="https://facestoriesbybushra.com/assets/img/portfolio/portfolio-01.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Face Stories by Bushra",
+      "url": "https://facestoriesbybushra.com/contact.html",
+      "about": { "@id": "https://facestoriesbybushra.com/#business" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://facestoriesbybushra.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact" }
+        ]
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --gold: #FFD700;
-            --black: #000000;
-            --dark-bg: #000000;
-            --text-white: #ffffff;
-        }
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages/contact.css">
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script defer src="assets/js/modules/glitter-canvas.js"></script>
+    <script defer src="assets/js/modules/scroll-animations.js"></script>
+    <script defer src="assets/js/pages/contact.js"></script>
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-        }
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1280521714030635');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img class="tracking-pixel" height="1" width="1" alt=""
+    src="https://www.facebook.com/tr?id=1280521714030635&ev=PageView&noscript=1"></noscript>
 
-        .navbar {
-            position: fixed;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.98);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 2px solid var(--gold);
-            backdrop-filter: blur(8px);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            list-style: none;
-            padding: 0 1rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--text-white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: calc(100vh - 160px);
-            padding: 90px 2rem 4rem;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-form {
-            padding: 1.5rem;
-        }
-
-        .contact-form h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.9rem;
-            background: rgba(255,215,0,0.1);
-            border: 2px solid var(--gold);
-            color: var(--text-white);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            box-shadow: 0 0 15px rgba(255,215,0,0.3);
-        }
-
-        select.form-control {
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFD700'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1em;
-        }
-
-        .submit-btn {
-            background: var(--gold);
-            color: var(--black);
-            padding: 1.1rem 2.5rem;
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            font-size: 1.1rem;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
-        }
-
-        .contact-info {
-            padding: 1.5rem;
-            position: relative;
-        }
-
-        .map-container {
-            height: 350px;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(255,215,0,0.1);
-        }
-
-        .contact-details {
-            margin-top: 2rem;
-        }
-
-        .detail-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.8rem;
-            gap: 1rem;
-        }
-
-        .detail-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,215,0,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            flex-shrink: 0;
-        }
-
-        .site-footer {
-            background: var(--black);
-            padding: 2rem 1rem;
-            text-align: center;
-            border-top: 2px solid var(--gold);
-        }
-
-        .social-links {
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links a {
-            color: var(--text-white);
-            font-size: 1.4rem;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--gold);
-        }
-
-        #glitter-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .review-button {
-            display: inline-block;
-            background: rgba(26, 26, 26, 0.9);
-            color: var(--gold);
-            padding: 1rem 2rem;
-            border: 2px solid var(--gold);
-            border-radius: 30px;
-            text-decoration: none;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .review-button:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        @media (max-width: 768px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-                padding: 80px 1rem 2rem;
-                gap: 2rem;
-            }
-
-            .contact-form h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .form-control {
-                padding: 0.8rem;
-            }
-
-            .map-container {
-                height: 280px;
-            }
-
-            .detail-item {
-                flex-direction: row;
-                align-items: center;
-                margin-bottom: 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                padding: 0 0.5rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
-
-            .submit-btn {
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .contact-container {
-                padding-top: 70px;
-            }
-
-            .contact-form h2 {
-                font-size: 1.6rem;
-            }
-
-            .form-group label {
-                font-size: 0.95rem;
-            }
-
-            .detail-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.8rem;
-            }
-
-            .detail-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-
-            .review-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.95rem;
-            }
-
-            .social-links a {
-                font-size: 1.2rem;
-                margin: 0 0.8rem;
-            }
-        }
-    </style>
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y875RYH6HM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y875RYH6HM');
+    </script>
 </head>
+
 <body>
-    <canvas id="glitter-canvas"></canvas>
-    
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="brochure.html">Brochure</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <canvas class="glitter-canvas" data-glitter aria-hidden="true"></canvas>
 
-    <div class="contact-container">
-        <div class="contact-form" data-aos="fade-right">
-            <h2>Get in Touch</h2>
-            <form 
-                netlify  
-                name="contact" 
-                method="POST" 
-                data-netlify="true" 
-                action="/success.html"
-                >
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Main">
+            <ul class="site-nav__list">
+                <li><a class="site-nav__link" href="index.html">Home</a></li>
+                <li><a class="site-nav__link" href="portfolio.html">Portfolio</a></li>
+                <li><a class="site-nav__link" href="about.html">About</a></li>
+                <li><a class="site-nav__link" href="brochure.html">Brochure</a></li>
+                <li><a class="site-nav__link" href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" class="page">
+        <div class="contact">
+            <section class="contact-form" data-aos="fade-right" aria-labelledby="contact-title">
+                <h1 class="contact-form__title" id="contact-title">Get in Touch</h1>
+
+                <!--
+                  Submissions are handled by Netlify Forms. If this site ever moves
+                  to a host without form handling, swap `data-netlify` for another
+                  endpoint (Formspree, a serverless function, etc.) or the form
+                  will silently do nothing.
+                -->
+                <form name="contact" method="POST" data-netlify="true" action="/success.html">
+                    <input type="hidden" name="form-name" value="contact">
+
+                    <div class="field">
+                        <label class="field__label" for="name">Full Name</label>
+                        <input class="field__control" type="text" id="name" name="name" autocomplete="name" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="email">Email Address</label>
+                        <input class="field__control" type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="phone">Phone Number</label>
+                        <input class="field__control" type="tel" id="phone" name="phone" autocomplete="tel" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="service">Service Needed</label>
+                        <select class="field__control" id="service" name="service" required>
+                            <option value="">Select Service</option>
+                            <option>Bridal Makeup</option>
+                            <option>Engagement Makeup</option>
+                            <option>Party Makeup</option>
+                            <option>Makeup Workshop</option>
+                            <option>Consultation</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="message">Message</label>
+                        <textarea class="field__control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--solid btn--block">Send Message</button>
+                </form>
+            </section>
+
+            <section class="contact-info" data-aos="fade-left" aria-labelledby="studio-title">
+                <h2 class="visually-hidden" id="studio-title">Studio location and contact details</h2>
+
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.961347520975!2d86.1776772754671!3d22.803896079327647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e53610208475%3A0x3f74c1e5f8b37d3e!2sBushra%20Fatma%20-%20Best%20Makeup%20Artist%20%7C%20Best%20Bridal%20Makeup%20Artist%20Jamshedpur!5e0!3m2!1sen!2sin!4v1746912502814!5m2!1sen!2sin"
+                        title="Map showing the Face Stories by Bushra studio in Dhatkidih, Jamshedpur"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen></iframe>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
+                <div class="details">
+                    <div class="detail">
+                        <div class="detail__icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
+                        <div>
+                            <h3 class="detail__title">Studio Address</h3>
+                            <address>
+                                3rd floor, Multazim Tower, Masjid Road, Opposite Arka Jain University Office,<br>
+                                Beside Pooja Medicals, Dhatkidih, Jamshedpur<br>
+                                Jharkhand &mdash; 831002
+                            </address>
+                        </div>
+                    </div>
+
+                    <div class="detail">
+                        <div class="detail__icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                        <div>
+                            <h3 class="detail__title">Call Us</h3>
+                            <p>
+                                <a href="tel:+917004789317">+91 70047 89317</a><br>
+                                <a href="tel:+916205866842">+91 62058 66842</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="detail">
+                        <div class="detail__icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                        <div>
+                            <h3 class="detail__title">Email</h3>
+                            <p><a href="mailto:facestoriesbybushra@gmail.com">facestoriesbybushra@gmail.com</a></p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                <div class="contact-info__cta">
+                    <a class="btn" href="https://www.google.com/search?q=Bushra+Fatma+-+Best+Makeup+Artist+%7C+Best+Bridal+Makeup+Artist+Jamshedpur+Reviews" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        Leave a Review
+                    </a>
                 </div>
-
-                <div class="form-group">
-                    <label for="service">Service Needed</label>
-                    <select id="service" name="service" class="form-control" required>
-                        <option value="">Select Service</option>
-                        <option>Bridal Makeup</option>
-                        <option>Engagement Makeup</option>
-                        <option>Party Makeup</option>
-                        <option>Makeup Workshop</option>
-                        <option>Consultation</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            </section>
         </div>
-
-        <div class="contact-info" data-aos="fade-left">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.961347520975!2d86.1776772754671!3d22.803896079327647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e53610208475%3A0x3f74c1e5f8b37d3e!2sBushra%20Fatma%20-%20Best%20Makeup%20Artist%20%7C%20Best%20Bridal%20Makeup%20Artist%20Jamshedpur!5e0!3m2!1sen!2sin!4v1746912502814!5m2!1sen!2sin" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                </iframe>
-            </div>
-
-            <div class="contact-details">
-                <div class="detail-item">
-                    <div class="detail-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Studio Address</h3>
-                        <p>3rd floor, Multazim Tower, Masjid Road Opposite Arka Jain University Office,<br>Beside Pooja Medicals, Dhatkidih, Jamshedpur<br>Jharkhand - 831002</p>
-                    </div>
-                </div>
-
-                <div class="detail-item">
-                    <div class="detail-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div>
-                        <h3>Call Us</h3>
-                        <p>+91 7004789317<br>+91 6205866842</p>
-                    </div>
-                </div>
-
-                <div class="detail-item">
-                    <div class="detail-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h3>Email</h3>
-                        <p>facestoriesbybushra@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-
-            <a href="https://www.google.com/search?sca_esv=56669d68f401c127&sxsrf=AHTn8zqkS3diYQMQpfvTGNQHChlMAdjS3Q:1746982428090&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzYEvD1eD4hyRwmjjQ0gNMr-_SCLg0Fw--tV-fY-bjLazwaQdHLe6Hr0CpXwkv0rnGirc8tpRMafgtyqksBEqhMX0jOn8P4-OmOCx_GaBJPcZHzWpouQqAv_eosWtqW9kakn8kWa1jaeRBR9n-c9y2uNOWih4zIzWMe9N2xthLFM86SbzVQ%3D%3D&q=Bushra+Fatma+-+Best+Makeup+Artist+%7C+Best+Bridal+Makeup+Artist+Jamshedpur+Reviews&sa=X&ved=2ahUKEwiAq7jY8JuNAxWWoGMGHcjgAUAQ0bkNegQIKxAE&biw=1470&bih=798&dpr=2#lrd=0x39f5e53610208475:0x3f74c1e5f8b37d3e,3,,,," class="review-button" target="_blank">
-                <i class="fas fa-star"></i>
-                Leave a Review
-            </a>
-        </div>
-    </div>
+    </main>
 
     <footer class="site-footer">
         <div class="social-links">
-            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank">
-                <i class="fab fa-instagram" style="color: #E1306C;"></i>
+            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank">
-                <i class="fab fa-facebook" style="color: #1877F2;"></i>
+            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="https://wa.me/+917004789317" target="_blank">
-                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+            <a href="https://wa.me/917004789317" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
             </a>
         </div>
-        <p>&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
+        <p class="site-footer__copy">&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
     </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-
-        // Mobile-optimized glitter animation
-        const canvas = document.getElementById('glitter-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let particleCount = Math.floor(window.innerWidth * 0.1);
-
-        function init() {
-            resizeCanvas();
-            createParticles();
-            animate();
-        }
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            particleCount = Math.floor(window.innerWidth * 0.1);
-        }
-
-        function createParticles() {
-            particles = [];
-            for(let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 1.2,
-                    speed: Math.random() * 0.3 + 0.1,
-                    opacity: Math.random() * 0.3
-                });
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(particle => {
-                particle.y += particle.speed;
-                if(particle.y > canvas.height) {
-                    particle.y = 0;
-                    particle.x = Math.random() * canvas.width;
-                }
-                
-                ctx.beginPath();
-                ctx.fillStyle = `rgba(255, 215, 0, ${particle.opacity})`;
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fill();
-            });
-            
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            createParticles();
-        });
-
-        init();
-    </script>
 </body>
 </html>

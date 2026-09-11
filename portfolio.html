@@ -1,396 +1,238 @@
-<!-- portfolio.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Portfolio - Face Stories by Bushra</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bridal Makeup Portfolio | Face Stories by Bushra, Jamshedpur</title>
+    <meta name="description" content="Browse real bridal, engagement and party makeup looks by Face Stories by Bushra — Jamshedpur's WedMeGood Users' Choice Winning makeup artist.">
+    <link rel="canonical" href="https://facestoriesbybushra.com/portfolio.html">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Face Stories by Bushra">
+    <meta property="og:title" content="Bridal Makeup Portfolio | Face Stories by Bushra">
+    <meta property="og:description" content="Real bridal, engagement and party makeup looks by Jamshedpur's WedMeGood Users' Choice Winning makeup artist.">
+    <meta property="og:url" content="https://facestoriesbybushra.com/portfolio.html">
+    <meta property="og:image" content="https://facestoriesbybushra.com/assets/img/portfolio/portfolio-01.jpg">
+    <meta property="og:locale" content="en_IN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bridal Makeup Portfolio | Face Stories by Bushra">
+    <meta name="twitter:description" content="Real bridal, engagement and party makeup looks by Jamshedpur's WedMeGood Users' Choice Winning makeup artist.">
+    <meta name="twitter:image" content="https://facestoriesbybushra.com/assets/img/portfolio/portfolio-01.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Bridal Makeup Portfolio",
+      "url": "https://facestoriesbybushra.com/portfolio.html",
+      "about": { "@id": "https://facestoriesbybushra.com/#business" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://facestoriesbybushra.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Portfolio" }
+        ]
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --gold: #FFD700;
-            --black: #000000;
-            --dark-bg: #000000;
-            --text-white: #ffffff;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages/portfolio.css">
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-white);
-            overflow-x: hidden;
-        }
+    <script defer src="assets/js/modules/swipe.js"></script>
+    <script defer src="assets/js/modules/modal.js"></script>
+    <script defer src="assets/js/modules/photo-wall.js"></script>
+    <script defer src="assets/js/modules/image-lightbox.js"></script>
+    <script defer src="assets/js/pages/portfolio.js"></script>
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.98);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 2px solid var(--gold);
-            backdrop-filter: blur(8px);
-        }
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1280521714030635');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img class="tracking-pixel" height="1" width="1" alt=""
+    src="https://www.facebook.com/tr?id=1280521714030635&ev=PageView&noscript=1"></noscript>
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            list-style: none;
-            padding: 0 1rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--text-white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .gallery-container {
-            padding: 90px 1rem 100px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-            aspect-ratio: 3/4;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border: 2px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-        }
-
-        .gallery-item:hover img {
-            border-color: var(--gold);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-        }
-
-        .modal-content {
-            position: relative;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .modal-image {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-image.active {
-            opacity: 1;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            color: var(--gold);
-            font-size: 1.8rem;
-            cursor: pointer;
-            z-index: 2100;
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 1rem;
-            z-index: 2100;
-        }
-
-        .nav-btn {
-            background: rgba(26, 26, 26, 0.8);
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: grid;
-            place-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        .site-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--black);
-            border-top: 2px solid var(--gold);
-            padding: 1rem;
-            z-index: 1000;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .social-links a {
-            color: var(--text-white);
-            font-size: 1.4rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--gold);
-        }
-
-        @media (max-width: 768px) {
-            .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                padding: 80px 0.5rem 90px;
-                gap: 0.5rem;
-            }
-
-            .gallery-item {
-                aspect-ratio: 2/3;
-            }
-
-            .modal-close {
-                top: 1rem;
-                right: 1rem;
-                font-size: 1.5rem;
-            }
-
-            .nav-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-container {
-                grid-template-columns: 1fr;
-                padding: 80px 0.5rem 90px;
-            }
-
-            .gallery-item {
-                aspect-ratio: 3/4;
-                max-width: 100%;
-                margin: 0 auto;
-            }
-
-            .nav-links a {
-                font-size: 0.85rem;
-            }
-
-            .social-links a {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y875RYH6HM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y875RYH6HM');
+    </script>
 </head>
-<body>
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="brochure.html">Brochure</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
 
-    <main class="gallery-container">
-        <!-- Gallery Items -->
-        <div class="gallery-item">
-            <img src="images/portfolio1.jpg" alt="Bridal Makeup 1">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio2.jpg" alt="Bridal Makeup 2">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio3.jpg" alt="Bridal Makeup 3">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio4.jpg" alt="Bridal Makeup 4">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio5.jpg" alt="Bridal Makeup 5">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio6.jpg" alt="Bridal Makeup 6">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio7.jpg" alt="Bridal Makeup 7">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio8.jpg" alt="Bridal Makeup 8">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio9.jpg" alt="Bridal Makeup 9">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio10.jpg" alt="Bridal Makeup 10">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio11.jpg" alt="Bridal Makeup 11">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio12.jpg" alt="Bridal Makeup 12">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio13.jpg" alt="Bridal Makeup 13">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio14.jpg" alt="Bridal Makeup 14">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio15.jpg" alt="Bridal Makeup 15">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio16.jpg" alt="Bridal Makeup 16">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio17.jpg" alt="Bridal Makeup 17">
-        </div>
-        <div class="gallery-item">
-            <img src="images/portfolio18.jpg" alt="Bridal Makeup 18">
+<body class="page-portfolio">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Main">
+            <ul class="site-nav__list">
+                <li><a class="site-nav__link" href="index.html">Home</a></li>
+                <li><a class="site-nav__link" href="portfolio.html" aria-current="page">Portfolio</a></li>
+                <li><a class="site-nav__link" href="about.html">About</a></li>
+                <li><a class="site-nav__link" href="brochure.html">Brochure</a></li>
+                <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" class="portfolio-page" data-portfolio-page>
+        <h1 class="portfolio-page__title">Bridal Makeup Portfolio &mdash; Face Stories by Bushra, Jamshedpur</h1>
+
+        <!--
+          Ships as a plain grid of links to the full-size photos. On load, the
+          photo-wall module rebuilds these into endlessly looping columns.
+        -->
+        <div class="photo-wall" data-photo-wall>
+            <ul class="photo-grid" data-photo-source>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-01.jpg">
+                            <img src="assets/img/portfolio/portfolio-01.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 1" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-02.png">
+                            <img src="assets/img/portfolio/portfolio-02.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 2" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-03.jpg">
+                            <img src="assets/img/portfolio/portfolio-03.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 3" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-04.jpg">
+                            <img src="assets/img/portfolio/portfolio-04.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 4" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-05.jpg">
+                            <img src="assets/img/portfolio/portfolio-05.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 5" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-06.jpg">
+                            <img src="assets/img/portfolio/portfolio-06.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 6" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-07.jpg">
+                            <img src="assets/img/portfolio/portfolio-07.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 7" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-08.png">
+                            <img src="assets/img/portfolio/portfolio-08.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 8" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-09.png">
+                            <img src="assets/img/portfolio/portfolio-09.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 9" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-10.png">
+                            <img src="assets/img/portfolio/portfolio-10.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 10" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-11.png">
+                            <img src="assets/img/portfolio/portfolio-11.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 11" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-12.png">
+                            <img src="assets/img/portfolio/portfolio-12.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 12" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-13.png">
+                            <img src="assets/img/portfolio/portfolio-13.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 13" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-14.png">
+                            <img src="assets/img/portfolio/portfolio-14.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 14" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-15.png">
+                            <img src="assets/img/portfolio/portfolio-15.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 15" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-16.png">
+                            <img src="assets/img/portfolio/portfolio-16.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 16" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-17.png">
+                            <img src="assets/img/portfolio/portfolio-17.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 17" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+                    <li class="photo-grid__item" data-photo>
+                        <a href="assets/img/portfolio/full/portfolio-18.png">
+                            <img src="assets/img/portfolio/portfolio-18.jpg" alt="Bridal makeup look by Face Stories by Bushra, Jamshedpur — photo 18" loading="lazy" decoding="async">
+                        </a>
+                    </li>
+            </ul>
         </div>
     </main>
 
-    <!-- Image Modal -->
-    <div class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="modal-nav">
-                <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-                <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <img class="modal-image" src="" alt="">
-        </div>
+    <button type="button" class="icon-btn wall-toggle" data-wall-toggle aria-label="Pause gallery motion" title="Pause / play scrolling">
+        <i class="fas fa-pause" aria-hidden="true"></i>
+    </button>
+
+    <!-- Full-resolution lightbox -->
+    <div class="modal lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Full-size photo" aria-hidden="true">
+        <button type="button" class="modal__close" data-modal-close aria-label="Close photo">&times;</button>
+        <button type="button" class="icon-btn lightbox__nav lightbox__nav--prev" data-lightbox-prev aria-label="Previous photo">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="icon-btn lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Next photo">
+            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <figure class="lightbox__figure">
+            <div class="spinner" data-lightbox-spinner hidden></div>
+            <img class="lightbox__image" data-lightbox-image src="" alt="">
+        </figure>
     </div>
 
     <footer class="site-footer">
         <div class="social-links">
-            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram" style="color: #E1306C;"></i>
+            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-facebook" style="color: #1877F2;"></i>
+            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="https://wa.me/+917004789317" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+            <a href="https://wa.me/917004789317" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
             </a>
         </div>
-        <p>&copy; 2024 Face Stories by Bushra</p>
+        <p class="site-footer__copy">&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
     </footer>
-
-    <script>
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const modal = document.querySelector('.modal');
-        const modalImage = document.querySelector('.modal-image');
-        const closeModal = document.querySelector('.modal-close');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const images = Array.from(galleryItems).map(item => item.querySelector('img').src);
-        let currentIndex = 0;
-
-        function openModal(index) {
-            currentIndex = index;
-            modal.style.display = 'block';
-            modalImage.src = images[currentIndex];
-            setTimeout(() => modalImage.classList.add('active'), 50);
-        }
-
-        function navigate(direction) {
-            currentIndex = (currentIndex + direction + images.length) % images.length;
-            modalImage.classList.remove('active');
-            setTimeout(() => {
-                modalImage.src = images[currentIndex];
-                modalImage.classList.add('active');
-            }, 300);
-        }
-
-        galleryItems.forEach((item, index) => item.addEventListener('click', () => openModal(index)));
-        closeModal.addEventListener('click', () => modal.style.display = 'none');
-        prevBtn.addEventListener('click', () => navigate(-1));
-        nextBtn.addEventListener('click', () => navigate(1));
-
-        let touchStartX = 0;
-        modal.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX);
-        modal.addEventListener('touchend', e => {
-            const touchEndX = e.changedTouches[0].clientX;
-            if (Math.abs(touchStartX - touchEndX) > 50) {
-                touchStartX > touchEndX ? navigate(1) : navigate(-1);
-            }
-        });
-
-        modal.addEventListener('click', e => {
-            if (e.target === modal) modal.style.display = 'none';
-        });
-
-        document.addEventListener('keydown', e => {
-            if (modal.style.display === 'block') {
-                if (e.key === 'ArrowLeft') navigate(-1);
-                if (e.key === 'ArrowRight') navigate(1);
-                if (e.key === 'Escape') modal.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>

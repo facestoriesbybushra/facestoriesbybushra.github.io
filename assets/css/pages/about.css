@@ -1,0 +1,253 @@
+/* ==========================================================================
+   pages/about.css — artist bio and award showcase
+   ========================================================================== */
+
+.about {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+}
+
+/* --------------------------------------------------------------------------
+   Award showcase (single frame, one clip at a time)
+   -------------------------------------------------------------------------- */
+
+.awards {
+    flex: 1;
+    max-width: 500px;
+}
+
+.awards__heading {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--space-lg);
+    opacity: 0.9;
+}
+
+.awards__frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border: 2px solid var(--color-gold);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-gold);
+    background: var(--color-black);
+}
+
+.awards__track {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform var(--transition-slow);
+}
+
+.awards__slide {
+    position: relative;
+    flex-shrink: 0;
+    width: 33.3333%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.awards__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.awards__year {
+    position: absolute;
+    top: var(--space-xs);
+    left: var(--space-xs);
+    z-index: 2;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--color-gold);
+    border-radius: var(--radius-pill);
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--color-gold);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.awards__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.awards__nav--prev { left: var(--space-xs); }
+.awards__nav--next { right: var(--space-xs); }
+
+.awards__dots {
+    position: absolute;
+    bottom: var(--space-sm);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.awards__dot {
+    width: 9px;
+    height: 9px;
+    border: 1px solid var(--color-gold);
+    border-radius: var(--radius-circle);
+    background: transparent;
+    transition: background var(--transition-fast);
+}
+
+.awards__dot.is-active {
+    background: var(--color-gold);
+}
+
+.awards__caption {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Bio column
+   -------------------------------------------------------------------------- */
+
+.bio {
+    flex: 1;
+    padding: var(--space-lg);
+}
+
+.bio__name {
+    font-family: var(--font-script);
+    font-size: 3.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-lg);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.stat {
+    padding: 1.2rem;
+    border: 1px solid var(--color-gold);
+    border-radius: var(--radius-sm);
+    background: var(--color-gold-soft);
+    text-align: center;
+}
+
+.stat__value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    margin-bottom: var(--space-xs);
+}
+
+.stat__label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bio__text {
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+}
+
+.bio__signature {
+    font-family: var(--font-script);
+    font-size: 2rem;
+    color: var(--color-gold);
+    text-align: center;
+    margin-top: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Video lightbox
+   -------------------------------------------------------------------------- */
+
+.video-modal__content {
+    position: relative;
+    max-width: 420px;
+    width: 100%;
+}
+
+.video-modal__player {
+    width: 100%;
+    max-height: 80vh;
+    border: 2px solid var(--color-gold);
+    border-radius: var(--radius-md);
+    background: var(--color-black);
+}
+
+.video-modal__caption {
+    text-align: center;
+    font-family: var(--font-display);
+    color: var(--color-gold);
+    letter-spacing: 1px;
+    margin-top: var(--space-sm);
+}
+
+.video-modal .modal__close {
+    top: calc(-1 * var(--space-xl));
+    right: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+
+    .awards {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .bio {
+        padding: 0;
+    }
+
+    .bio__name {
+        font-size: 2.8rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .stat__value {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .awards {
+        max-width: 300px;
+    }
+
+    .bio__name {
+        font-size: 2.2rem;
+    }
+
+    .bio__signature {
+        font-size: 1.8rem;
+    }
+}

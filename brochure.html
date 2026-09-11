@@ -1,502 +1,247 @@
-<!-- brochure.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Brochure - Face Stories by Bushra</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Makeup Packages &amp; Pricing | Face Stories by Bushra, Jamshedpur</title>
+    <meta name="description" content="Bridal & event makeup packages by Face Stories by Bushra, Jamshedpur — Classic, Premium & Airbrush bridal packages from ₹8,000. View pricing & inclusions.">
+    <link rel="canonical" href="https://facestoriesbybushra.com/brochure.html">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Face Stories by Bushra">
+    <meta property="og:title" content="Makeup Packages &amp; Pricing | Face Stories by Bushra">
+    <meta property="og:description" content="Classic, Premium & Airbrush bridal packages from ₹8,000. View full pricing & inclusions.">
+    <meta property="og:url" content="https://facestoriesbybushra.com/brochure.html">
+    <meta property="og:image" content="https://facestoriesbybushra.com/assets/img/portfolio/portfolio-01.jpg">
+    <meta property="og:locale" content="en_IN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Makeup Packages &amp; Pricing | Face Stories by Bushra">
+    <meta name="twitter:description" content="Classic, Premium & Airbrush bridal packages from ₹8,000. View full pricing & inclusions.">
+    <meta name="twitter:image" content="https://facestoriesbybushra.com/assets/img/portfolio/portfolio-01.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Makeup Packages & Pricing",
+      "url": "https://facestoriesbybushra.com/brochure.html",
+      "about": { "@id": "https://facestoriesbybushra.com/#business" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://facestoriesbybushra.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Brochure" }
+        ]
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gold: #d4af37;
-            --black: #000000;
-            --dark-bg: #000000;
-            --text-white: #ffffff;
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages/brochure.css">
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    <script defer src="assets/js/modules/force-download.js"></script>
+    <script defer src="assets/js/pages/brochure.js"></script>
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-        }
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1280521714030635');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img class="tracking-pixel" height="1" width="1" alt=""
+    src="https://www.facebook.com/tr?id=1280521714030635&ev=PageView&noscript=1"></noscript>
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.98);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 2px solid var(--gold);
-            backdrop-filter: blur(8px);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            list-style: none;
-            padding: 0 1rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--text-white);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 90px 1rem 2rem;
-        }
-
-        .header {
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .logo {
-            max-width: 180px;
-            margin-bottom: 1.5rem;
-        }
-
-        .brand-title {
-            font-size: 2rem;
-            margin: 1rem 0;
-            background: linear-gradient(to right, var(--gold), #f9f295);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: #ccc;
-            margin-bottom: 1rem;
-        }
-
-        .instagram-link {
-            display: inline-block;
-            margin: 0.5rem 0;
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        .package-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .package-card {
-            background: #111;
-            border-radius: 10px;
-            padding: 1.5rem;
-            border: 1px solid var(--gold);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .package-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gold);
-        }
-
-        .package-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--gold);
-        }
-
-        .package-price {
-            font-size: 1.8rem;
-            margin: 1rem 0;
-            color: var(--text-white);
-        }
-
-        .brand-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-        .brand-list li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.2rem;
-            position: relative;
-        }
-
-        .brand-list li::before {
-            content: '•';
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-        }
-
-        .inclusions {
-            background: #111;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            border: 1px solid var(--gold);
-        }
-
-        .inclusions-title {
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .inclusion-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .inclusion-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .inclusion-item::before {
-            content: '✓';
-            color: var(--gold);
-        }
-
-        .policy-note {
-            background: rgba(255, 215, 0, 0.1);
-            border-left: 3px solid var(--gold);
-            padding: 1rem;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        .download-section {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .download-btn {
-            padding: 1rem 2rem;
-            border: 2px solid var(--gold);
-            background: rgba(26, 26, 26, 0.9);
-            color: var(--gold);
-            border-radius: 30px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .download-btn:hover {
-            background: var(--gold);
-            color: var(--black);
-        }
-
-        .site-footer {
-            background: var(--black);
-            padding: 2rem 1rem;
-            text-align: center;
-            border-top: 2px solid var(--gold);
-        }
-
-        .social-links {
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text-white);
-            font-size: 1.4rem;
-            margin: 0 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 80px 1rem 1rem;
-            }
-
-            .brand-title {
-                font-size: 1.8rem;
-            }
-
-            .package-card {
-                width: 90%;
-                margin: 0 auto;
-            }
-
-            .inclusion-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .download-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .brand-title {
-                font-size: 1.6rem;
-            }
-
-            .package-title {
-                font-size: 1.2rem;
-            }
-
-            .package-price {
-                font-size: 1.6rem;
-            }
-
-            .nav-links a {
-                font-size: 0.85rem;
-            }
-
-            .social-links a {
-                font-size: 1.2rem;
-                margin: 0 0.8rem;
-            }
-        }
-    </style>
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y875RYH6HM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y875RYH6HM');
+    </script>
 </head>
-<body>
-    <!-- <canvas id="glitter-canvas"></canvas> -->
-    
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="brochure.html">Brochure</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
 
-    <div class="container">
-        <header class="header">
-            <img src="images/bushra.png" alt="FaceStories by Bushra" class="logo">
-            <h1 class="brand-title">FACE STORIES BY BUSHRA</h1>
-            <p class="subtitle">Luxury Bridal & Event Makeup Artistry</p>
-            <a href="https://www.instagram.com/facestories_by_bushra/" class="instagram-link" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i> @facestories_by_bushra
-            </a>
-            <p>
-                <i class="fab fa-whatsapp" style="color: #d4af37;"></i> 
-                <a href="https://wa.me/917004789317" style="color: var(--gold); text-decoration: none;">
-                    +91 70047 89317
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Main">
+            <ul class="site-nav__list">
+                <li><a class="site-nav__link" href="index.html">Home</a></li>
+                <li><a class="site-nav__link" href="portfolio.html">Portfolio</a></li>
+                <li><a class="site-nav__link" href="about.html">About</a></li>
+                <li><a class="site-nav__link" href="brochure.html" aria-current="page">Brochure</a></li>
+                <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main" class="page">
+        <header class="brochure-header">
+            <img class="brochure-header__logo" src="assets/img/brand/logo-mark.png" alt="Face Stories by Bushra logo">
+            <h1 class="brochure-header__title">Face Stories by Bushra</h1>
+            <p class="brochure-header__tagline">Luxury Bridal &amp; Event Makeup Artistry</p>
+
+            <div class="brochure-header__contact">
+                <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram" aria-hidden="true"></i> @facestories_by_bushra
                 </a>
-            </p>
+                <a href="https://wa.me/917004789317" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> +91 70047 89317
+                </a>
+            </div>
         </header>
-        
-        <h2>BRIDAL MAKEUP PACKAGES</h2>
-        
-        <div class="package-section">
-            <div class="package-card">
-                <h3 class="package-title">Classic Bridal</h3>
-                <div class="package-price">₹18,000</div>
-                <ul class="brand-list">
-                    <li>MAC</li>
-                    <li>Makeup Studio</li>
-                    <li>Too Faced</li>
-                    <li>NARS</li>
-                    <li>Character Cosmetics</li>
-                </ul>
+
+        <section aria-labelledby="bridal-packages">
+            <h2 id="bridal-packages">Bridal Makeup Packages</h2>
+
+            <div class="packages">
+                <article class="package">
+                    <h3 class="package__title">Classic Bridal</h3>
+                    <p class="package__price">&#8377;18,000</p>
+                    <ul class="package__list">
+                        <li>MAC</li>
+                        <li>Makeup Studio</li>
+                        <li>Too Faced</li>
+                        <li>NARS</li>
+                        <li>Character Cosmetics</li>
+                    </ul>
+                </article>
+
+                <article class="package">
+                    <h3 class="package__title">Premium Bridal</h3>
+                    <p class="package__price">&#8377;20,000</p>
+                    <ul class="package__list">
+                        <li>Dior</li>
+                        <li>Chanel</li>
+                        <li>Armani</li>
+                        <li>Fenty</li>
+                        <li>Smashbox</li>
+                        <li>Est&eacute;e Lauder</li>
+                        <li>Charlotte Tilbury</li>
+                    </ul>
+                </article>
+
+                <article class="package">
+                    <h3 class="package__title">Airbrush Bridal</h3>
+                    <p class="package__price">&#8377;25,000</p>
+                    <ul class="package__list">
+                        <li>All High-End International Brands</li>
+                        <li>Airbrush Technique</li>
+                        <li>Professional Lighting Setup</li>
+                        <li>Extended Services</li>
+                    </ul>
+                </article>
             </div>
-            
-            <div class="package-card">
-                <h3 class="package-title">Premium Bridal</h3>
-                <div class="package-price">₹20,000</div>
-                <ul class="brand-list">
-                    <li>Dior</li>
-                    <li>Chanel</li>
-                    <li>Armani</li>
-                    <li>Fenty</li>
-                    <li>Smashbox</li>
-                    <li>Estée Lauder</li>
-                    <li>Charlotte Tilbury</li>
-                </ul>
+        </section>
+
+        <section aria-labelledby="event-packages">
+            <h2 id="event-packages">Event Makeup Packages</h2>
+
+            <div class="packages">
+                <article class="package">
+                    <h3 class="package__title">Engagement / Sangeet</h3>
+                    <p class="package__price">&#8377;15,000</p>
+                    <ul class="package__list">
+                        <li>MAC</li>
+                        <li>Bodyography</li>
+                        <li>Huda</li>
+                        <li>Makeup Forever</li>
+                    </ul>
+                </article>
+
+                <article class="package">
+                    <h3 class="package__title">Premium (Engagement / Event)</h3>
+                    <p class="package__price">&#8377;18,000</p>
+                    <ul class="package__list">
+                        <li>Armani</li>
+                        <li>Dior</li>
+                        <li>Fenty</li>
+                        <li>Smashbox</li>
+                        <li>Haus Labs</li>
+                        <li>Chanel</li>
+                        <li>Charlotte Tilbury</li>
+                        <li>Est&eacute;e Lauder</li>
+                    </ul>
+                </article>
+
+                <article class="package">
+                    <h3 class="package__title">Haldi / Mehndi</h3>
+                    <p class="package__price">&#8377;8,000</p>
+                    <ul class="package__list">
+                        <li>Hair Extensions Included</li>
+                        <li>Hair Accessories</li>
+                        <li>Customized Traditional Look</li>
+                        <li>Long-Lasting Formula</li>
+                    </ul>
+                </article>
             </div>
-            
-            <div class="package-card">
-                <h3 class="package-title">Airbrush Bridal</h3>
-                <div class="package-price">₹25,000</div>
-                <ul class="brand-list">
-                    <li>All High-End International Brands</li>
-                    <li>Airbrush Technique</li>
-                    <li>Professional Lighting Setup</li>
-                    <li>Extended Services</li>
-                </ul>
+        </section>
+
+        <section class="inclusions" aria-labelledby="inclusions-title">
+            <h2 class="inclusions__title" id="inclusions-title">All Packages Include</h2>
+
+            <div class="inclusions__grid">
+                <div class="inclusions__item">Customized Makeup Design</div>
+                <div class="inclusions__item">Professional Hair Styling</div>
+                <div class="inclusions__item">Saree / Dress Draping Assistance</div>
+                <div class="inclusions__item">Premium False Lashes</div>
+                <div class="inclusions__item">Colored Lenses (Optional)</div>
+                <div class="inclusions__item">High-Quality Hair Extensions</div>
+                <div class="inclusions__item">Skin Prep &amp; Priming</div>
+                <div class="inclusions__item">Long-Lasting Setting</div>
             </div>
-        </div>
-        
-        <h2>EVENT MAKEUP PACKAGES</h2>
-        
-        <div class="package-section">
-            <div class="package-card event-package">
-                <h3 class="package-title">Engagement/Sangeet</h3>
-                <div class="package-price">₹15,000</div>
-                <ul class="brand-list">
-                    <li>MAC</li>
-                    <li>Bodyography</li>
-                    <li>Huda</li>
-                    <li>Makeup Forever</li>
-                </ul>
-            </div>
-            
-            <div class="package-card event-package">
-                <h3 class="package-title">Premium (Engagement/Event)</h3>
-                <div class="package-price">₹18,000</div>
-                <ul class="brand-list">
-                    <li>Armani</li>
-                    <li>Dior</li>
-                    <li>Fenty</li>
-                    <li>Smashbox</li>
-                    <li>Haus Labs</li>
-                    <li>Chanel</li>
-                    <li>Charlotte Tilbury</li>
-                    <li>Estée Lauder</li>
-                </ul>
-            </div>
-            
-            <div class="package-card">
-                <h3 class="package-title">Haldi/Mehndi</h3>
-                <div class="package-price">₹8,000</div>
-                <ul class="brand-list">
-                    <li>Hair Extensions Included</li>
-                    <li>Hair Accessories</li>
-                    <li>Customized Traditional Look</li>
-                    <li>Long-Lasting Formula</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="inclusions">
-            <h3 class="inclusions-title">ALL PACKAGES INCLUDE</h3>
-            <div class="inclusion-grid">
-                <div class="inclusion-item">Customized Makeup Design</div>
-                <div class="inclusion-item">Professional Hair Styling</div>
-                <div class="inclusion-item">Saree/Dress Draping Assistance</div>
-                <div class="inclusion-item">Premium False Lashes</div>
-                <div class="inclusion-item">Colored Lenses (Optional)</div>
-                <div class="inclusion-item">High-Quality Hair Extensions</div>
-                <div class="inclusion-item">Skin Prep & Priming</div>
-                <div class="inclusion-item">Long-Lasting Setting</div>
-            </div>
-            
-            <div class="policy-note">
+
+            <div class="policy">
                 <p><strong>Booking Policy:</strong> 30% advance payment required (non-refundable). Adjustable for future bridal or engagement bookings only. Date changes subject to availability.</p>
                 <p><strong>Advance Payment:</strong> 30% non-refundable deposit required to secure your date.</p>
                 <p><strong>Rescheduling:</strong> Date changes subject to availability with at least 15 days notice.</p>
                 <p><strong>Cancellation:</strong> Deposit can be applied to future bookings within 6 months.</p>
                 <p><strong>Travel Fees:</strong> May apply for locations outside city limits.</p>
             </div>
-        </div>
-        <div class="download-section">
-            <a href="Assets/Face Stories By Bushra - Brochure.pdf" download class="download-btn" target="_blank">
-                <i class="fas fa-download"></i>
+        </section>
+
+        <div class="brochure-download">
+            <a class="btn" href="assets/docs/face-stories-by-bushra-brochure.pdf"
+               download="Face Stories by Bushra - Brochure.pdf" data-download>
+                <i class="fas fa-download" aria-hidden="true"></i>
                 Download Brochure
             </a>
         </div>
-    </div>
+    </main>
 
     <footer class="site-footer">
         <div class="social-links">
-            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram" style="color: #E1306C;"></i>
+            <a href="https://www.instagram.com/facestories_by_bushra/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-facebook" style="color: #1877F2;"></i>
+            <a href="https://www.facebook.com/Facestoriesbybushra" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="https://wa.me/+917004789317" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+            <a href="https://wa.me/917004789317" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
             </a>
         </div>
-        <p>&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
+        <p class="site-footer__copy">&copy; 2024 Face Stories by Bushra. All rights reserved.</p>
     </footer>
-
-    <!-- <script>
-        const canvas = document.getElementById('glitter-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let particleCount = Math.floor(window.innerWidth * 0.1);
-
-        function init() {
-            resizeCanvas();
-            createParticles();
-            animate();
-        }
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            particleCount = Math.floor(window.innerWidth * 0.1);
-        }
-
-        function createParticles() {
-            particles = [];
-            for(let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 1.2,
-                    speed: Math.random() * 0.3 + 0.1,
-                    opacity: Math.random() * 0.3
-                });
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(particle => {
-                particle.y += particle.speed;
-                if(particle.y > canvas.height) particle.y = 0;
-                
-                ctx.beginPath();
-                ctx.fillStyle = `rgba(255, 215, 0, ${particle.opacity})`;
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fill();
-            });
-            
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', init);
-        init();
-    </script> -->
 </body>
 </html>

@@ -1,0 +1,142 @@
+/* ==========================================================================
+   layout.css — site header, navigation, footer, page shells
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Header / navigation
+   -------------------------------------------------------------------------- */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-nav);
+    padding: var(--space-md) 0;
+    background: var(--color-surface-nav);
+    border-bottom: 2px solid var(--color-gold);
+    backdrop-filter: blur(8px);
+}
+
+.site-nav__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    padding: 0 var(--space-md);
+}
+
+.site-nav__link {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible {
+    color: var(--color-gold);
+}
+
+/* Current page marker */
+.site-nav__link[aria-current='page'] {
+    color: var(--color-gold);
+    border-bottom: 1px solid var(--color-gold);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+    background: var(--color-black);
+    border-top: 2px solid var(--color-gold);
+    padding: var(--space-xl) var(--space-md);
+    text-align: center;
+}
+
+/* The portfolio page is a fixed-height photo wall, so its footer is pinned. */
+.page-portfolio .site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-nav);
+    padding: var(--space-md);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+/* Portfolio's footer is pinned, so keep it compact */
+.page-portfolio .social-links {
+    margin-bottom: var(--space-xs);
+}
+
+.page-portfolio .site-footer__copy {
+    font-size: 0.8rem;
+}
+
+.social-links a {
+    color: var(--color-text);
+    font-size: 1.4rem;
+    transition: transform var(--transition-fast);
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+}
+
+/* Platform brand colours */
+.social-links .fa-instagram { color: #E1306C; }
+.social-links .fa-facebook  { color: #1877F2; }
+.social-links .fa-whatsapp  { color: #25D366; }
+
+.site-footer__copy {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Page shells
+   -------------------------------------------------------------------------- */
+
+/* Standard page: clears the fixed header, centred content column. */
+.page {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: var(--header-clearance) var(--space-xl) var(--space-2xl);
+}
+
+/* Decorative glitter canvas sits behind everything. */
+.glitter-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-background);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .site-nav__list {
+        gap: var(--space-md);
+    }
+
+    .page {
+        padding: 80px var(--space-md) var(--space-xl);
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-nav__link {
+        font-size: 0.85rem;
+    }
+}

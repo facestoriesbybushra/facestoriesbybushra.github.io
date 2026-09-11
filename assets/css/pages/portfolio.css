@@ -1,0 +1,206 @@
+/* ==========================================================================
+   pages/portfolio.css — photo wall + image lightbox
+
+   Two states, by design (progressive enhancement):
+   1. No JS / before JS runs — a plain responsive grid that scrolls normally.
+   2. `.is-animated` (added by JS) — a fixed-height wall of looping columns.
+   ========================================================================== */
+
+.portfolio-page {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--content-wide);
+    margin: var(--header-clearance) auto var(--footer-clearance);
+    padding: 0 var(--space-md);
+}
+
+.portfolio-page.is-animated {
+    height: calc(100vh - var(--header-clearance) - var(--footer-clearance));
+    min-height: 420px;
+}
+
+.portfolio-page__title {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: var(--space-sm);
+}
+
+.photo-wall {
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* --------------------------------------------------------------------------
+   State 1 — static grid fallback
+   -------------------------------------------------------------------------- */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-md);
+}
+
+.photo-grid__item {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+}
+
+.photo-grid__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   State 2 — animated looping columns
+   -------------------------------------------------------------------------- */
+
+.photo-wall__columns {
+    display: flex;
+    gap: var(--space-md);
+    height: 100%;
+}
+
+.photo-wall__column {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    /* Fade the photos out at the top and bottom edges */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 95%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 5%, #000 95%, transparent 100%);
+}
+
+.photo-wall__track {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    will-change: transform;
+    animation-name: wall-scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Every other column drifts the opposite way */
+.photo-wall__track--reverse {
+    animation-direction: reverse;
+}
+
+@keyframes wall-scroll {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+}
+
+/* Pause on hover, or when the global pause button is active */
+.photo-wall__column:hover .photo-wall__track,
+.photo-wall.is-paused .photo-wall__track {
+    animation-play-state: paused;
+}
+
+.photo-wall__item {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+}
+
+.photo-wall__item:hover,
+.photo-wall__item:focus-visible {
+    border-color: var(--color-gold);
+}
+
+.photo-wall__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Floating pause / play control */
+.wall-toggle {
+    position: fixed;
+    right: var(--space-lg);
+    bottom: 6.5rem;
+    z-index: var(--z-floating);
+}
+
+/* --------------------------------------------------------------------------
+   Image lightbox
+   -------------------------------------------------------------------------- */
+
+.lightbox__figure {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /* The figure fills the dialog, so let clicks on empty space fall through
+       to the backdrop — otherwise tapping outside the photo never closes it. */
+    pointer-events: none;
+}
+
+.lightbox__image {
+    max-width: 100%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    pointer-events: auto;
+}
+
+.lightbox__image.is-visible {
+    opacity: 1;
+}
+
+.lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.lightbox__nav--prev { left: var(--space-md); }
+.lightbox__nav--next { right: var(--space-md); }
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .portfolio-page {
+        margin-top: 80px;
+        margin-bottom: 90px;
+        padding: 0 var(--space-xs);
+    }
+
+    .portfolio-page.is-animated {
+        height: calc(100vh - 170px);
+    }
+
+    .photo-wall__columns,
+    .photo-wall__track,
+    .photo-grid {
+        gap: var(--space-xs);
+    }
+
+    .wall-toggle {
+        right: var(--space-md);
+        bottom: 5.5rem;
+    }
+}
+
+/* If the visitor prefers reduced motion, keep the wall still. */
+@media (prefers-reduced-motion: reduce) {
+    .photo-wall__track {
+        animation: none !important;
+    }
+}

@@ -1,0 +1,6 @@
+# Netlify only. Tells the browser to save files in /assets/docs/ rather than
+# render them inline, so the brochure downloads even if JavaScript is off.
+# GitHub Pages ignores this file (it allows no custom headers) — the
+# force-download script covers that case.
+/assets/docs/*
+  Content-Disposition: attachment

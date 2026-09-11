@@ -1,0 +1,85 @@
+/* ==========================================================================
+   pages/message.css — centred message pages (form success, 404)
+   ========================================================================== */
+
+.message-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: var(--space-xl);
+    background: radial-gradient(circle at center, #1a1a1a 0%, var(--color-black) 100%);
+}
+
+.message-card {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    padding: var(--space-2xl) var(--space-xl);
+    border: 2px solid var(--color-gold);
+    border-radius: var(--radius-md);
+    background: var(--color-black);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    text-align: center;
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, var(--color-gold-soft), transparent);
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.message-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.message-card__logo {
+    max-width: 180px;
+    margin: 0 auto var(--space-xl);
+    filter: drop-shadow(0 0 8px var(--color-gold-glow));
+}
+
+.message-card__title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-lg);
+}
+
+.message-card__text {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
+}
+
+.message-card__alt {
+    margin-top: var(--space-xl);
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .message-card {
+        padding: var(--space-xl) var(--space-lg);
+    }
+
+    .message-card__logo {
+        max-width: 140px;
+    }
+
+    .message-card__title {
+        font-size: 2rem;
+    }
+
+    .message-card__text {
+        font-size: 1rem;
+    }
+
+    .message-card .btn {
+        width: 100%;
+    }
+}

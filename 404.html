@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Page Not Found | Face Stories by Bushra</title>
+    <meta name="robots" content="noindex, follow">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/pages/message.css">
+
+    <!--
+      Google Analytics only. The Meta Pixel is deliberately left off this page:
+      a 404 hit is not an audience worth retargeting, and counting it as a
+      PageView would skew ad optimisation. The GA4 event below records which
+      broken URL was requested, so dead links can be found and fixed.
+    -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y875RYH6HM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y875RYH6HM');
+      gtag('event', 'page_not_found', {
+        requested_path: window.location.pathname,
+        referrer: document.referrer
+      });
+    </script>
+</head>
+
+<body>
+    <main class="message-page">
+        <div class="message-card">
+            <a href="/">
+                <img class="message-card__logo" src="/assets/img/brand/logo.png" alt="Face Stories by Bushra logo">
+            </a>
+            <h1 class="message-card__title">Page Not Found</h1>
+            <p class="message-card__text">
+                The page you're looking for doesn't exist or has moved.<br>
+                Let's get you back to something beautiful.
+            </p>
+            <a class="btn btn--solid" href="/portfolio.html">View the Portfolio</a>
+            <p class="message-card__alt">
+                or go back to the <a href="/">Homepage</a>
+            </p>
+        </div>
+    </main>
+</body>
+</html>
