@@ -7,7 +7,7 @@
 (function (FSB) {
     'use strict';
 
-    var PARTICLE_DENSITY = 0.1; // particles per pixel of viewport width
+    var PARTICLE_DENSITY = 0.15; // particles per pixel of viewport width
     var GOLD = '255, 215, 0';
 
     /**
@@ -40,9 +40,9 @@
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    size: Math.random() * 1.2,
+                    size: Math.random() * 1.8 + 0.4,
                     speed: Math.random() * 0.3 + 0.1,
-                    opacity: Math.random() * 0.3
+                    opacity: Math.random() * 0.5 + 0.2
                 });
             }
         }
