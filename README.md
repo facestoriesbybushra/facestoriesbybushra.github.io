@@ -198,6 +198,12 @@ Options if you host on GitHub Pages:
 ## SEO
 
 - Unique `<title>`, meta description and canonical URL per page
+- Canonicals, `og:url`, JSON-LD and the sitemap use **short URLs**
+  (`/about`, not `/about.html`). Netlify's pretty-URL processing rewrites
+  every internal link to that form on the live site, so the canonicals must
+  match it — otherwise Google treats `/about` as a duplicate of
+  `/about.html` ("Alternate page with proper canonical tag"). The `href`s in
+  the source keep `.html` so the files still work opened from disk.
 - Open Graph + Twitter Card tags so shared links render a proper preview
 - One `BeautySalon` entity defined on the homepage with `@id`; other pages
   reference it by that id rather than duplicating the block, and add their own
